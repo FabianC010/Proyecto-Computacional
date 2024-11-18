@@ -1,0 +1,9 @@
+Correcciones a Diag y a rk4.
+Revisar calculo_norma. (número complejos)
+Añadir help() a la documentación.
+Hacer el código para los videos.
+Evaluar de manera pequeña (ver qué debemos de guardar y cómo. Iniciar una lista con las dimensiones adecuadas).
+Evaluar: N = 1000-1500, t muy pequeños y epsilon grande (viceversa), valores similares.
+main
+Limpiar archivos
+Paralelización 
