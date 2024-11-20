@@ -67,6 +67,3 @@ for tt in range(times.size):
 endTime = time.time() # Se calcula el tiempo después de finalizar.
 duration = endTime - startTime # Se obtiene la diferencia entre el tiempo final e inicial.
 print(f"Duration: {duration} seconds") # Se imprime la duración.
-print(stateQuant0)
-
-
