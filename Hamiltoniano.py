@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 import numpy as np
-import scipy as sp
 
 def crear_Hamil(epsilon, t_enr):
     """Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size
@@ -12,7 +11,7 @@ def crear_Hamil(epsilon, t_enr):
     coincidan con los tamaños de las diagonales se imprime un mensaje de error.
 
     Examples:
-        >>> crear_Hamil(np.array([1.0,2.0,3.0,4.0]), np.array([1.0,2.0,3.0]))
+        >>> crear_Hamil(np.array([1.0, 2.0, 3.0, 4.0]), np.array([1.0 ,2.0 ,3.0]))
         [[1. 1. 0. 0.]
         [1. 2. 2. 0.]
         [0. 2. 3. 3.]
@@ -35,11 +34,3 @@ def crear_Hamil(epsilon, t_enr):
         print("Valores energéticos no coinciden con el tamaño del Hamiltoniano.")
         return Hamiltoniano
 
-epsilon = np.array([1.0,2.0,3.0,4.0,5.0])
-t_enr = np.array([1.0,2.0,3.0,4.0])
-
-#t_enr = np.linspace(0.0, 50.0, num=8)
-#epsilon = np.linspace(0.0, 50.0, num=7)
-
-H = crear_Hamil(epsilon, t_enr)
-print(H)
