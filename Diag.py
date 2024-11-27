@@ -46,8 +46,9 @@ def sol_vector(hamil, psi, h):
 
 
     """
-    eigVals, eigVecs = np.linalg.eigh(hamil)      
-    # Ver correcciones del profe, parece que faltan cosas
+    eigVals, eigVecs = np.linalg.eigh(hamil)
+    psi = eigVecs.conjugate().transpose().dot(psi)      
+    # REVISAR - 
     psi_t = exps(eigVals, h, psi)
     psi = eigVecs.dot(psi_t)
 
