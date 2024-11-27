@@ -20,12 +20,12 @@ def exps(eigenValues, h, oldState):
                de la diagonal del hamiltoniano multiplicador por el paso temporal y el opuesto de la constante 
                imaginaria.
     """ 
-    state = np.exp(-1.0j*eigenValues*h)*oldState # Se usa * y no np.dot() porque los autovalores se guardan como un 
-                                                 # vector, no como una matriz diagonal.
+    state = np.exp(-1.0j * eigenValues * h) * oldState     # Se usa * y no np.dot() porque los autovalores se guardan como un 
+                                                           # vector, no como una matriz diagonal.
     return state
 
 
-def sol_vector(hamil, psi, h):
+def sol_Vector(eigenVectors, eigenValues, hamil, psi, h):
     """ Evaluación del vector solución correspondiente a la dinámica de un sistema cuántico.
 
     Esta función realiza el cálculo del vector que dicta la solución formal de la ecuación
@@ -46,10 +46,8 @@ def sol_vector(hamil, psi, h):
 
 
     """
-    eigVals, eigVecs = np.linalg.eigh(hamil)
-    psi = eigVecs.conjugate().transpose().dot(psi)      
-    # REVISAR - 
-    psi_t = exps(eigVals, h, psi)
-    psi = eigVecs.dot(psi_t)
+    psi = eigenVectors.conjugate().transpose().dot(psi)
+    psi_t = exps(eigenValues, h, psi)
+    psi = eigenVectors.dot(psi_t)
 
     return psi
