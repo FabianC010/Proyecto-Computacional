@@ -25,7 +25,7 @@ def exps(eigenValues, h, oldState):
     return state
 
 
-def sol_vector(Hamil, psi):
+def sol_vector(hamil, psi, h):
     """ Evaluación del vector solución correspondiente a la dinámica de un sistema cuántico.
 
     Esta función realiza el cálculo del vector que dicta la solución formal de la ecuación
@@ -37,14 +37,16 @@ def sol_vector(Hamil, psi):
         >>> sol_vector()  # Terminar
 
     Args:
-        Hamil (ndarray): Hamiltoniano tridiagonal.
+        hamil (ndarray): Hamiltoniano tridiagonal.
+        psi (ndarray): vector inicial.
+        h (float): Valor del paso temporal del estado anterior al actual.
 
     Returns:
         psi (ndarray): vector solución 
 
 
     """
-    eigVals, eigVecs = np.linalg.eigh(H)      
+    eigVals, eigVecs = np.linalg.eigh(hamil)      
     # Ver correcciones del profe, parece que faltan cosas
     psi_t = exps(eigVals, h, psi)
     psi = eigVecs.dot(psi_t)
