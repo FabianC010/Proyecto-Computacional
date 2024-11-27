@@ -18,8 +18,8 @@ def crear_Hamil(epsilon, t_enr):
         [0. 0. 3. 4.]]
 
     Args:
-        t_ener (ndarray): Valores energéticos que son asignados a la diagonal principal.
-        epsilon (ndarray): Valores energéticos que son asignados a las diagonales secundarias.
+        epsilon (ndarray): Valores energéticos que son asignados a la diagonal principal.
+        t_enr (ndarray): Valores energéticos que son asignados a las diagonales secundarias.
 
     Returns:
         ndarray: Devuelve el Hamiltoniano tridiagonal si los valores coinciden
