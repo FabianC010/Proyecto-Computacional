@@ -38,8 +38,8 @@ def rk4(func, oper, state, h):
         (array): Retorna la suma del estado anterior más un sexto de h por la suma del k_1 + 2*k_2 + 2*k_3 + k_4.
     """
     k1 = func(oper, state)
-    k2 = func(oper, state + h*(k1)/2.0)
-    k3 = func(oper, state + h*(k2)/2.0)
-    k4 = func(oper, state + h*(k3))
-    return state + (1.0/6.0) * h* (k1 + 2.0*k2 + 2.0*k3 + k4)
+    k2 = func(oper, state + (h * k1)/2.0)
+    k3 = func(oper, state + (h * k2)/2.0)
+    k4 = func(oper, state + (h * k3))
+    return state + (1.0/6.0) * h * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
 
