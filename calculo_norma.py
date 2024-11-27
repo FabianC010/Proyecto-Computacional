@@ -2,7 +2,7 @@
 
 import numpy as np
 
-def norma_cuadrada(psi):
+def norma_Cuadrada(psi):
     """Cálculo de la norma al cuadrado de cada componente de un vector psi.
 
     La función recibe un vector psi (cuyos componentes pueden ser complejos),y calcula 

@@ -23,7 +23,7 @@ stateQuant1 = np.zeros(times.size, dtype = object)
 
 for tt in range(times.size):
     psi = rk.rk4(rk.dynGenerator, hamiltoniano, psi, h) # Se calcula el nuevo estado del sistema
-    stateQuant1[tt] = cn.norma_cuadrada(psi)
+    stateQuant1[tt] = cn.norma_Cuadrada(psi)
     
 
 endTime1 = time.time()
@@ -42,7 +42,7 @@ eigVals, eigVecs = np.linalg.eigh(hamiltoniano)
 
 for tt in range(times.size):
     psi = dg.sol_Vector(eigVecs, eigVals, hamiltoniano, psi, h)
-    stateQuant2[tt] = cn.norma_cuadrada(psi)
+    stateQuant2[tt] = cn.norma_Cuadrada(psi)
 
 endTime2 = time.time()
 print("Duración: ", endTime2 - startTime2)
