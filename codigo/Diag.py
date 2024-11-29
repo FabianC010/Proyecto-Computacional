@@ -29,7 +29,7 @@ def sol_Vector(eigenVectors, eigenValues, hamil, psi, h):
     """ Evaluación del vector solución correspondiente a la dinámica de un sistema cuántico.
 
     Esta función realiza el cálculo del vector que dicta la solución formal de la ecuación
-    de Schrödinger. Para En este caso particular, el vector proviene de un Hamiltoniano 
+    de Schrödinger. En este caso particular, el vector proviene de un Hamiltoniano 
     tridiagonal por lo cuál dicho vector se evalúa en la base del espacio vectorial "tridiagonal" 
     y luego se convierte a la base original para guardar las entradas adecuadas. 
     
