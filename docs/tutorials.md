@@ -25,7 +25,7 @@ t_enr = np.full (99, 1.0)
 hamiltoniano = hm.crear_Hamil(epsilon, t_enr)
 ```
 
-La función **full** genera un _ndarray_ cuyos elementos son todos iguales al segundo parámetro que recibe. Ahora bien, vamos a plantear el tiempo de estudio del sistema. Tomaremos desde 0 hasta 10 segundos para ver cómo es la evolución temporal de las probabilidades de encontrar al fermión en los distintos espacios de la grilla. La función **linspace** del módulo de `numpy` es la elegida para crear un arreglo cuyos elementos tienen una diferencia homogénea entre sí. Dividiremos los 10 segundos en 1000 momentos temporales.
+La función **full** genera un _ndarray_ cuyos elementos son todos iguales al segundo parámetro que recibe. Ahora bien, vamos a plantear el tiempo de estudio del sistema. Tomaremos desde 0 hasta 20 segundos para ver cómo es la evolución temporal de las probabilidades de encontrar al fermión en los distintos espacios de la grilla. La función **linspace** del módulo de `numpy` es la elegida para crear un arreglo cuyos elementos tienen una diferencia homogénea entre sí. Dividiremos los 20 segundos en 1000 momentos temporales.
 
 ``` py
 times = np.linspace(0.0, 10.0, 1000)
@@ -58,7 +58,7 @@ En el instante _tt_ se calcula el estado del sistema un paso adelante en el tiem
 
 ## Diagonalización 
 
-También, se puede encontrar la solución mediante el método de diagonalización. Para esto utilizaremos el módulo `Diag`, el cual contiene la implementación del método y la función que genera la dinámica según lo plantea la solución de la ecuación de Schr&#xF6;dinger ([Explicación](explanation.md)). Ahora, hacemos un proceso análogo al que hicimos con **RK4**.
+También, se puede encontrar la solución mediante el método de diagonalización. Para esto utilizaremos el módulo `Diag`, el cual contiene la implementación del método y la función que genera la dinámica según lo plantea la solución de la ecuación de Schrödinger ([Explicación](explanation.md)). Ahora, hacemos un proceso análogo al que hicimos con **RK4**.
 
 ``` py
 psi = np.zeros(100, dtype = float)
@@ -87,11 +87,22 @@ for tt in range(times.size):
 
 En el _for loop_ se calculó el estado del sistema avanzado en el tiempo. Luego, se calculó la norma de cada entrada y se guardó en el contenedor. Esto se repitió para todos los tiempos.
 
-## Animación
+## Animaciones
 Ya teniendo el comportamiento del sistema, se pueden hacer animaciones en las que se grafiquen las probabilidades de encontrar al fermión en los diferentes puntos de la grilla. Esta gráfica va cambiando para cada tiempo.
 
 
+### Runge-Kutta 4
 
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4_tutorial.mp4" type="video/mp4">
+</video>
+
+
+### Diagonalización
+
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_diag_tutorial.mp4" type="video/mp4">
+</video>
 
 
 La documentación de estas funciones se ecuentran en el apartado de [referencias](reference.md)

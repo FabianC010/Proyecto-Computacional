@@ -42,15 +42,15 @@ Sin embargo, en el caso de este problema, la dinámica del sistema no depende ex
 
 $$
 \begin{align} 
- k_1 &= h f ( Oper , y_n ) \\
- k_2 &= h f ( Oper , y_n +\frac{k_1}{2} ) \\
- k_3 &= h f ( Oper , y_n + \frac{k_2}{2} ) \\
- k_4 &= h f ( Oper , y_n + k_3 ) \\
+ k_1 &= h f ( oper , y_n ) \\
+ k_2 &= h f ( oper , y_n +\frac{k_1}{2} ) \\
+ k_3 &= h f ( oper , y_n + \frac{k_2}{2} ) \\
+ k_4 &= h f ( oper , y_n + k_3 ) \\
  y_{n + 1} &= y_n + \frac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4) , 
 \end{align}
 $$
 
-Donde Oper representa un operador lineal, que en este problema es el Hamiltoniano.
+Donde oper representa un operador lineal, que en este problema es el Hamiltoniano.
 
 El error de aproximación es $\mathcal{O}(h^5)$, mientras que el error global es aproximadamente del orden $\mathcal{O}(h^4)$.
 
@@ -60,6 +60,8 @@ Por otro lado, al estar trabajando con un Hamiltoniano tridiagonal, no es tan co
 Ya conocemos las metodologías con las que se puede visualizar la dinámica del sistema.
 
 ## ¿Qué representa que el estado sea un arreglo de números complejos?
-Lo que estamos tratando de observar es el comportamiento de un sistema en una grilla unidimensional. El estado inicial, es con el fermión en el centro de esta. Sin embargo, con el paso del tiempo, hay varias valores de la grilla que tienen un valor. Estos valores son números complejos.  Es contraintuitivo que el fermión pueda estar en varios puntos a la vez. Lo que sucede es que cuando empieza a moverse, se comporta como una onda. Esto quiere decir, que no se sabe con certeza su posición exacta. Pero, sí se puede obtener la probalidad de cada una de las posiciones. La probabilidad que tiene de estar en un punto de la grilla es igual a la norma al cuadrado del número complejo en su respectiva entrada. Esto hay que aplicarlo en las metodologías, ya que es lo que nos interesa obtener. Dependiendo del tiempo en el que se evalúa la dinámica, el fermión puede llegar hasta el final de la grilla. Después de eso, lo que se va a observar es que la onda se refleja en la frontera y se dirige hacia el centro de la grilla de nuevo. En la realidad, esto no pasa, pero en el modelo no existe espacio más allá de la grilla, por eso ocurre de esa forma. 
+Lo que estamos tratando de observar es el comportamiento de un sistema en una grilla unidimensional. El estado inicial, es con el fermión en el centro de esta. Sin embargo, con el paso del tiempo, hay varias valores de la grilla que tienen un valor. Estos valores son números complejos.  Es contraintuitivo que el fermión pueda estar en varios puntos a la vez. Lo que sucede es que cuando empieza a moverse, se comporta como una onda. Esto quiere decir, que no se sabe con certeza su posición exacta. Pero, sí se puede obtener la probalidad de cada una de las posiciones. La probabilidad que tiene de estar en un punto de la grilla es igual a la norma al cuadrado del número complejo en su respectiva entrada. Esto hay que aplicarlo en las metodologías, ya que es lo que nos interesa obtener. 
+
+Dependiendo del tiempo en el que se evalúa la dinámica, el fermión puede llegar hasta el final de la grilla. Después de eso, lo que se va a observar es que la onda se refleja en la frontera y se dirige hacia el centro de la grilla de nuevo. En la realidad, esto no pasa, pero en el modelo no existe espacio más allá de la grilla, por eso ocurre de esa forma. 
 
 
