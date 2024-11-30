@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import numpy as np
+import scipy.sparse as sp
 import Hamiltoniano as Hm
 
 def exps(eigenValues, h, oldState):
@@ -19,13 +20,14 @@ def exps(eigenValues, h, oldState):
         ndarray: Devuelve los valores de la daga del estado viejo multiplicados por el exponencial de los valores 
                de la diagonal del hamiltoniano multiplicador por el paso temporal y el opuesto de la constante 
                imaginaria.
-    """ 
+    """
+     
     state = np.exp(-1.0j * eigenValues * h) * oldState     # Se usa * y no np.dot() porque los autovalores se guardan como un 
                                                            # vector, no como una matriz diagonal.
     return state
 
 
-def sol_Vector(eigenVectors, eigenValues, hamil, psi, h):
+def sol_Vector(eigenVectors, eigenValues, psi, h):
     """ Evaluación del vector solución correspondiente a la dinámica de un sistema cuántico.
 
     Esta función realiza el cálculo del vector que dicta la solución formal de la ecuación
