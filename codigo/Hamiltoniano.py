@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 
 import numpy as np
+import scipy.sparse as sp
 
 def crear_Hamil(epsilon, t_enr):
     """Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size
 
-    Esta función crear un Hamiltoniano con la característica de ser tridiagonal
-    con los valores de un "vector" epsilon en la diagonal principal y en las otras
-    diagonales los valores de un "vector" t_enr. En caso que los valores no 
-    coincidan, la función levanta una excepción `ValueError`.
+    Esta función crear un Hamiltoniano de manera dispersa pues tiene la característica
+    de ser tridiagonal. Los valores de un "vector" epsilon forman la diagonal principal y 
+    las otras diagonales son formadas por los valores de un "vector" t_enr. 
+    En caso que los valores no coincidan con los tamaños de las diagonales respectivas, 
+    la función levanta una excepción `ValueError`.
 
     Examples:
-        >>> crear_Hamil(np.array([1.0, 2.0, 3.0, 4.0]), np.array([1.0 ,2.0 ,3.0]))
+        >>> crear_Hamil(np.array([1.0, 2.0, 3.0, 4.0]), np.array([1.0 ,2.0 ,3.0])).toarray()
         [[1. 1. 0. 0.]
         [1. 2. 2. 0.]
         [0. 2. 3. 3.]
@@ -25,15 +27,15 @@ def crear_Hamil(epsilon, t_enr):
         ValueError: Si t_enr.size no es igual a epsilon.size - 1.
 
     Returns:
-        Hamiltoniano (ndarray): Devuelve el Hamiltoniano tridiagonal si los valores coinciden
-    """ 
-    Hamiltoniano = np.zeros((epsilon.size, epsilon.size))
-
+        Hamiltoniano (ndarray): Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden
+    """
+ 
     if (t_enr.size == epsilon.size - 1):
-        Hamiltoniano += np.diagflat(epsilon) + np.diagflat(t_enr, 1) + np.diagflat(t_enr, -1)
+        Hamiltoniano = sp.diags([t_enr, epsilon, t_enr], offsets = [-1, 0, 1], shape = (epsilon.size, epsilon.size))
         return Hamiltoniano
 
     else:
         raise ValueError ("Valores energéticos no coinciden con el tamaño del Hamiltoniano.")
 
 #print(help(crear_Hamil))
+
