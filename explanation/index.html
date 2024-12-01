@@ -1,0 +1,577 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../tutorials/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+    
+    
+      
+        <title>Explicación - Modelo de TIGHT BINDING de ocupación simple con potencial definido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#explicacion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Modelo de TIGHT BINDING de ocupación simple con potencial definido" class="md-header__button md-logo" aria-label="Modelo de TIGHT BINDING de ocupación simple con potencial definido" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Modelo de TIGHT BINDING de ocupación simple con potencial definido
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Explicación
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Modelo de TIGHT BINDING de ocupación simple con potencial definido" class="md-nav__button md-logo" aria-label="Modelo de TIGHT BINDING de ocupación simple con potencial definido" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Modelo de TIGHT BINDING de ocupación simple con potencial definido
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Índice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Explicación
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Explicación
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tight-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tight Binding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-implementar-los-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué implementar los métodos?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Por qué implementar los métodos?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runge-kutta-de-orden-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runge-Kutta de orden 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagonalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagonalización.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-representa-que-el-estado-sea-un-arreglo-de-numeros-complejos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué representa que el estado sea un arreglo de números complejos?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorials/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parallel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paralelización
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resultados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referencias
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tight-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tight Binding
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sistema
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-implementar-los-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Por qué implementar los métodos?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="¿Por qué implementar los métodos?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runge-kutta-de-orden-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runge-Kutta de orden 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagonalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagonalización.
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#que-representa-que-el-estado-sea-un-arreglo-de-numeros-complejos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué representa que el estado sea un arreglo de números complejos?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="explicacion">Explicación</h1>
+<h2 id="tight-binding">Tight Binding</h2>
+<h2 id="sistema">Sistema</h2>
+<p>La dinámica de un estado puro para un sistema cuántico aislado se rige bajo la ecuación de Schrödinger (<span class="arithmatex">\(\hbar = 1\)</span>)</p>
+<p>$$
+\begin{equation}
+\frac{\partial}{\partial t} |\psi(t)\rangle = -i \hat{H} |\psi(t)\rangle
+\end{equation},
+$$
+cuya solución formal está dada por</p>
+<div class="arithmatex">\[
+\begin{equation}
+|\psi(t)\rangle = e^{-i \hat{H}(t - t_0)} |\psi(t = t_0)\rangle
+\end{equation}
+\]</div>
+<p>Con esto dicho, es necesario resolver de manera numérica la primera ecuación diferencial o evaluar de alguna forma la exponencial de la matriz que se encuentra en la segunda ecuación. Para este proyecto se usan 2 metodologías: <strong>RK4</strong> para la ecuación diferencial y <strong>Diagonalización</strong> para la exponencial.</p>
+<h2 id="por-que-implementar-los-metodos">¿Por qué implementar los métodos?</h2>
+<h3 id="runge-kutta-de-orden-4">Runge-Kutta de orden 4</h3>
+<p>El método de Runge-Kutta de orden 4 (<em>rk4</em>) lo que hace es evaluar el estado del sistema a partir del anterior, es decir, de forma iterativa. Para ello, utiliza cuatro variables, razón por la que el método es de orden 4. Este orden es el más utilizado ya que corresponde al mejor compromiso entre complejidad y error de aproximación. Más formalmente, lo que hace este método es mejorar la aproximación de una ecuación diferencial con el método de Euler sin la necesidad de considerar órdenes más altos en la expansión de Taylor de <span class="arithmatex">\(y(t+h)\)</span>, donde h es un paso temporal. Para ello, usa 4 puntos entre y(t) y y(t+h) para conseguir la aproximación. Luego, calcula la expansión de Taylor de ambas expresiones alrededor de esos puntos, para restarlas y terminar cancelando términos. Al hacer eso, quedan las siguientes ecuaciones: ESPINES ERROR </p>
+<div class="arithmatex">\[
+\begin{align} 
+ k_1 &amp;= h f ( t_n , y_n ) \\
+ k_2 &amp;= h f ( t_n + \frac{h}{2} , y_n +\frac{k_1}{2} ) \\
+ k_3 &amp;= h f ( t_n + \frac{h}{2} , y_n + \frac{k_2}{2} ) \\
+ k_4 &amp;= h f ( t_n + h , y_n + k_3 ) \\
+ y_{n + 1} &amp;= y_n + \frac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4) , 
+\end{align}
+\]</div>
+<p>donde h es el paso temporal y f es la función que genera la dinámica del problema en cuestión, que en este caso es la ecuación de Schr&#xF6;dinger que vimos anteriormente.</p>
+<p>Sin embargo, en el caso de este problema, la dinámica del sistema no depende explícitamente del tiempo. Entonces, las ecuaciones toman la siguiente forma:</p>
+<div class="arithmatex">\[
+\begin{align} 
+ k_1 &amp;= h f ( oper , y_n ) \\
+ k_2 &amp;= h f ( oper , y_n +\frac{k_1}{2} ) \\
+ k_3 &amp;= h f ( oper , y_n + \frac{k_2}{2} ) \\
+ k_4 &amp;= h f ( oper , y_n + k_3 ) \\
+ y_{n + 1} &amp;= y_n + \frac{1}{6} (k_1 + 2 k_2 + 2 k_3 + k_4) , 
+\end{align}
+\]</div>
+<p>Donde oper representa un operador lineal, que en este problema es el Hamiltoniano.</p>
+<p>El error de aproximación es <span class="arithmatex">\(\mathcal{O}(h^5)\)</span>, mientras que el error global es aproximadamente del orden <span class="arithmatex">\(\mathcal{O}(h^4)\)</span>.</p>
+<h3 id="diagonalizacion">Diagonalización.</h3>
+<p>Por otro lado, al estar trabajando con un Hamiltoniano tridiagonal, no es tan complicado obtener una base en la que este sea diagonal. Al obtener los autovalores y autovectores, podemos evaluar cada estado directamente de la solución de la ecuación de Schr&#xF6;dinger. Es importante saber que esos autovalores son los posibles niveles de energía del sistema y los autovectores son funciones de onda. También, la matriz conformada por lo autovectores es la matriz unitaria que tranforma los elementos de una base a otra. Hay que tomar en cuenta que para hacer la operación, también debemos tener el estado del sistema en la "base diagonal". Para hacer la transformación, multiplicamos el conjugado hermítico de la matriz de autovectores por el estado en la "base de espines". Con esto listo, se puede evaluar directamente el siguiente estado del sistema. No obstante, este va a estar en la "base diagonal", ya que se calculó en esa base. Solo basta con multiplicar la  base de autovectores por el estado obtenido. Esto debe hacerse para cada paso temporal.</p>
+<p>Ya conocemos las metodologías con las que se puede visualizar la dinámica del sistema.</p>
+<h2 id="que-representa-que-el-estado-sea-un-arreglo-de-numeros-complejos">¿Qué representa que el estado sea un arreglo de números complejos?</h2>
+<p>Lo que estamos tratando de observar es el comportamiento de un sistema en una grilla unidimensional. El estado inicial, es con el fermión en el centro de esta. Sin embargo, con el paso del tiempo, hay varias valores de la grilla que tienen un valor. Estos valores son números complejos.  Es contraintuitivo que el fermión pueda estar en varios puntos a la vez. Lo que sucede es que cuando empieza a moverse, se comporta como una onda. Esto quiere decir, que no se sabe con certeza su posición exacta. Pero, sí se puede obtener la probalidad de cada una de las posiciones. La probabilidad que tiene de estar en un punto de la grilla es igual a la norma al cuadrado del número complejo en su respectiva entrada. Esto hay que aplicarlo en las metodologías, ya que es lo que nos interesa obtener. </p>
+<p>Dependiendo del tiempo en el que se evalúa la dinámica, el fermión puede llegar hasta el final de la grilla. Después de eso, lo que se va a observar es que la onda se refleja en la frontera y se dirige hacia el centro de la grilla de nuevo. En la realidad, esto no pasa, pero en el modelo no existe espacio más allá de la grilla, por eso ocurre de esa forma. </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

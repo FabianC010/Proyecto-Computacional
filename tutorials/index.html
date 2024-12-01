@@ -1,0 +1,594 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../explanation/">
+      
+      
+        <link rel="next" href="../parallel/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+    
+    
+      
+        <title>Tutorial - Modelo de TIGHT BINDING de ocupación simple con potencial definido</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Modelo de TIGHT BINDING de ocupación simple con potencial definido" class="md-header__button md-logo" aria-label="Modelo de TIGHT BINDING de ocupación simple con potencial definido" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Modelo de TIGHT BINDING de ocupación simple con potencial definido
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Tutorial
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Modelo de TIGHT BINDING de ocupación simple con potencial definido" class="md-nav__button md-logo" aria-label="Modelo de TIGHT BINDING de ocupación simple con potencial definido" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Modelo de TIGHT BINDING de ocupación simple con potencial definido
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Índice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explanation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Explicación
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planteamiento-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planteamiento inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4" class="md-nav__link">
+    <span class="md-ellipsis">
+      RK4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagonalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagonalización
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animaciones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Animaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runge-kutta-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runge-Kutta 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagonalizacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagonalización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parallel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paralelización
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../results/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Resultados
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Referencias
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planteamiento-inicial" class="md-nav__link">
+    <span class="md-ellipsis">
+      Planteamiento inicial
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rk4" class="md-nav__link">
+    <span class="md-ellipsis">
+      RK4
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagonalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagonalización
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#animaciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Animaciones
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Animaciones">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runge-kutta-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runge-Kutta 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagonalizacion_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Diagonalización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="tutorial">Tutorial</h1>
+<h2 id="planteamiento-inicial">Planteamiento inicial</h2>
+<p>Vamos a trabajar con una grilla de tamaño 100 <span class="arithmatex">\(\times\)</span> 100 y con un único fermión que se encontrará en el medio de la grilla. Lo primero que se debe hacer es crear un vector <code>psi</code>, cuyo tamaño representa el tamaño de la grilla y el valor de la norma al cuadrado de la entrada <span class="arithmatex">\(c_i\)</span>, la probabilidad de encontrar al fermión en dicho punto. Para realizar las operaciones se necesita de la biblioteca <code>numpy</code>, por eso hay que importarla junto al resto de módulos que ocupamos. Usaremos elementos de tipo <em>float</em> para una mejor representación de las probabilidades.</p>
+<pre><code class="language-py">import numpy as np
+import Hamiltoniano as hm
+import as rk
+import Diag as dg.
+import calculo_norma as cn
+</code></pre>
+<pre><code class="language-py">psi = np.zeros(100, dtype = float)
+psi[100//2] = 1.0
+</code></pre>
+<p>La condición inicial es que <span class="arithmatex">\(t = 0\)</span>, la probabilidad de encontrar al fermión en el medio de la grilla es <span class="arithmatex">\(= 1\)</span>, esto implica que en el resto de la grilla es de 0. En la segunda línea derreferenciamos el elemento <code>100//2</code> de <em>psi</em>. Los índices de las listas son <em>integers</em>, por eso es necesario usar el operador <span class="arithmatex">\(//\)</span> que realiza una división de enteros y su resultado es el cociente de la división sin el resto. Una vez construido el estado inicial del sistema, debemos crear el hamiltoniano, cuyas características principales son ser tridiagonal y cuadrado. Para ello, se invoca a la función <strong>crear_Hamil</strong> del módulo <code>Hamiltoniano</code>. Sin embargo, primero debemos definir los valores que toman los <span class="arithmatex">\(\epsilon_i\)</span> y <span class="arithmatex">\(t_i\)</span> que construyen el hamiltoniano del sistema (<a href="../">Índice</a>). En este ejemplo, planteamos un sistema donde estos valores son similares. </p>
+<pre><code class="language-py">epsilon = np.full(100, 2.0)
+t_enr = np.full (99, 1.0)
+hamiltoniano = hm.crear_Hamil(epsilon, t_enr)
+</code></pre>
+<p>La función <strong>full</strong> genera un <em>ndarray</em> cuyos elementos son todos iguales al segundo parámetro que recibe. Ahora bien, vamos a plantear el tiempo de estudio del sistema. Tomaremos desde 0 hasta 20 segundos para ver cómo es la evolución temporal de las probabilidades de encontrar al fermión en los distintos espacios de la grilla. La función <strong>linspace</strong> del módulo de <code>numpy</code> es la elegida para crear un arreglo cuyos elementos tienen una diferencia homogénea entre sí. Dividiremos los 20 segundos en 1000 momentos temporales.</p>
+<pre><code class="language-py">times = np.linspace(0.0, 10.0, 1000)
+temp_dif = times[1] - times[0]
+</code></pre>
+<p>Cómo se mencionó anteriormente, <strong>linspace</strong> genera elementos con una diferencia entre ellos, <code>temp_dif</code> se encarga de almacenar esta diferencia ya que es importante para los cálculos posteriores. </p>
+<p>Seguidamente, veremos cómo resolver el problema con las dos metodologías elegidas.</p>
+<h2 id="rk4">RK4</h2>
+<p>Para encontrar la solución mediante el método de Runge-Kutta de orden 4, utilizaremos el módulo <code>rk4</code> (importado al principio), el cual contiene la implementación del método y la función que genera la dinámica según lo plantea la ecuación de Schrödinger (<a href="../explanation/">Explicación</a>). Con esto dicho, es necesario crear un contenedor donde se guarden las probabilidades de ocupación por el fermión de cada espacio de la grilla por cada instante temporal:</p>
+<pre><code class="language-py">state_quantr = np.zeros(times.size, dtype = object)
+</code></pre>
+<p>La <em>r</em> al final de <code>state_quantr</code> es para denotar el método que se está usando. Presenta <code>dtype = object</code> porque contienen vectores.</p>
+<p>Bien, es momento de iniciar la evaluación del comportamiento del sistema. Para ello, vamos a iniciar un <em>for loop</em> para evaluar cada momento temporal e invocamos a la función <strong>rk4</strong> de <code>rk</code>. Nuevamente, lo que queremos visualizar son las probabilidades de encontrar al fermión, las cuales son representadas por la norma al cuadrado de cada entrada de <code>psi</code>, para esto llamamos a <strong>norma_Cuadrada</strong> del módulo <code>calculo_norma</code>. El procedimiento sería el siguiente:</p>
+<pre><code class="language-py">for tt in range(times.size):
+    psi = rk.rk4(rk.dynGenerator, hamiltoniano, psi, temp_dif) # Se calcula el nuevo estado del sistema
+    state_quantr[tt] = cn.norma_Cuadrada(psi)
+</code></pre>
+<p>En el instante <em>tt</em> se calcula el estado del sistema un paso adelante en el tiempo y <code>psi</code> adquiere las propiedades de ese sistema. Se realiza el cálculo de las normas al cuadrado, las probabilidades se guardan en el contenedor y se repite para todos los tiempos.</p>
+<h2 id="diagonalizacion">Diagonalización</h2>
+<p>También, se puede encontrar la solución mediante el método de diagonalización. Para esto utilizaremos el módulo <code>Diag</code>, el cual contiene la implementación del método y la función que genera la dinámica según lo plantea la solución de la ecuación de Schrödinger (<a href="../explanation/">Explicación</a>). Ahora, hacemos un proceso análogo al que hicimos con <strong>RK4</strong>.</p>
+<pre><code class="language-py">psi = np.zeros(100, dtype = float)
+psi[100//2] = 1.0
+</code></pre>
+<p>Esto lo volvemos a hacer para volver a tener el arreglo del estado inicializado con valores de 0.0 y un 1.0 en medio de la grilla. No importa borrar los datos que contenía porque los que interesan ya están guardados en state_quantr.</p>
+<pre><code class="language-py">state_quantd = np.zeros(times.size, dtype = object)
+</code></pre>
+<p>Se crea un arreglo para contener las probabilidades de ocupación del fermión en cada instante temporal para este método. Ahora, ocupamos calcular los autovectores y autovalores del Hamiltoniano. Para ello, utilizaremos la función <strong>eigh</strong> de <code>np.linalg</code>, la cual nos hace el cálculo.</p>
+<pre><code class="language-py">eigVals, eigVecs = np.linalg.eigh(hamiltoniano)
+</code></pre>
+<p>Con esto listo, tenemos todas las variables necesarias para evaluar la dinámica del sistema con esta metodología numérica. Para ello, vamos a iniciar un <em>for loop</em> para evaluar cada momento temporal e invocamos a la función <strong>sol_Vector</strong> de <code>dg</code>. Al igual que en <strong>RK4</strong> lo que ocupamos son las probabilidades de encontrar al fermión, entonces ocupamos a la función <strong>norma_Cuadrada</strong> del módulo <code>calculo_norma</code>. El procedimiento sería el siguiente:</p>
+<pre><code class="language-py">for tt in range(times.size):
+  psi = dg.sol_Vector(eigVecs, eigVals, hamiltonian, psi, temp_dif)
+  state_quantd[tt] = cn.norma_cuadrada(psi)
+</code></pre>
+<p>En el <em>for loop</em> se calculó el estado del sistema avanzado en el tiempo. Luego, se calculó la norma de cada entrada y se guardó en el contenedor. Esto se repitió para todos los tiempos.</p>
+<h2 id="animaciones">Animaciones</h2>
+<p>Ya teniendo el comportamiento del sistema, se pueden hacer animaciones en las que se grafiquen las probabilidades de encontrar al fermión en los diferentes puntos de la grilla. Esta gráfica va cambiando para cada tiempo.</p>
+<h3 id="runge-kutta-4">Runge-Kutta 4</h3>
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4_tutorial.mp4" type="video/mp4">
+</video>
+
+<h3 id="diagonalizacion_1">Diagonalización</h3>
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_diag_tutorial.mp4" type="video/mp4">
+</video>
+
+<p>La documentación de estas funciones se ecuentran en el apartado de <a href="../reference/">referencias</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      
+        <script src="../javascripts/mathjax.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
