@@ -21,7 +21,7 @@ def exps(eigenValues, h, oldState):
                             estado del sistema. 
 
     Returns:
-        ndarray: Devuelve los valores de la daga del estado viejo multiplicados por el exponencial de los valores 
+        (ndarray): Devuelve los valores de la daga del estado viejo multiplicados por el exponencial de los valores 
                  de la diagonal del hamiltoniano multiplicador por el paso temporal y el opuesto de la constante 
                  imaginaria.
     """

@@ -18,7 +18,7 @@ def norma_Cuadrada(psi):
         psi (ndarray): Vector que contiene la dinámica del sistema.
        
     Returns:
-        ndarray: Devuelve un arreglo cuyas entradas corresponden a la norma al cuadrado
+        (ndarray): Devuelve un arreglo cuyas entradas corresponden a la norma al cuadrado
                  de los corresponientes componentes del vector que recibe como argumento.                 
     """
 
