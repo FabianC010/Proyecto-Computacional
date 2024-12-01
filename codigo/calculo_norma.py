@@ -17,8 +17,10 @@ def norma_Cuadrada(psi):
         psi (ndarray): Vector que contiene la dinámica del sistema.
        
     Returns:
-        ndarray: Devuelve un arreglo cuyas entradas son la norma de los componentes
-                 del vector original
+        ndarray: Devuelve un arreglo cuyas entradas son la norma dl cuadrado de los 
+                 componentes del vector original
     """
 
     return np.abs(psi)**2
+
+#print(help(norma_Cuadrada))

@@ -20,8 +20,8 @@ def crear_Hamil(epsilon, t_enr):
         [0. 0. 3. 4.]]
 
     Args:
-        epsilon (ndarray): Valores energéticos que son asignados a la diagonal principal.
-        t_enr (ndarray): Valores energéticos que son asignados a las diagonales secundarias.
+        epsilon (ndarray): Primer argumento. Valores energéticos que son asignados a la diagonal principal.
+        t_enr (ndarray): Segundo argumento. Valores energéticos que son asignados a las diagonales secundarias.
 
     Raises:
         ValueError: Si t_enr.size no es igual a epsilon.size - 1.
