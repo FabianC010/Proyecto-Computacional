@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 import numpy as np
-import scipy.sparse as sp
-import Hamiltoniano as Hm
 
 def exps(eigenValues, h, oldState):
     """Evaluacion del exponencial de los valores diagonales del Hamiltoniano.
@@ -11,9 +9,10 @@ def exps(eigenValues, h, oldState):
        autovalores.
 
     Examples:
+        >>> import numpy as np
         >>> exps(np.array([-1.41473988,  0.39770187,  1.97266549,  4.74988177,  9.29449075]), 1.0, np.array([0.0,  0.0,  1.0,  0.0,  0.0]))
-        [ 0.        +0.j         0.        +0.j        -0.39113927-0.9203315j
-        0.        +0.j         0.        -0.j  ] 
+        array([ 0.        +0.j         0.        +0.j        -0.39113927-0.9203315j
+                0.        +0.j         0.        -0.j  ])
     
     Args:
         eigenValues (ndarray): Primer argumento. Autovalores de Hamiltoniano inicial.
@@ -41,7 +40,7 @@ def sol_Vector(eigenVectors, eigenValues, psi, h):
     las entradas adecuadas. 
     
     Examples:
-        >>> sol_vector(#PONER EIGENVECTORS , np.array([-1.41473988,  0.39770187,  1.97266549,  4.74988177,  9.29449075]), np.array([0.0,  0.0,  1.0,  0.0,  0.0]), 1.0)  # Terminar
+        >>> sol_vector(#PONER EIGENVECTORS np.array(), np.array([-1.41473988,  0.39770187,  1.97266549,  4.74988177,  9.29449075]), np.array([0.0,  0.0,  1.0,  0.0,  0.0]), 1.0)  # Terminar
         []
 
     Args:
@@ -63,3 +62,6 @@ def sol_Vector(eigenVectors, eigenValues, psi, h):
     psi = eigenVectors.dot(psi_t)
 
     return psi
+
+
+

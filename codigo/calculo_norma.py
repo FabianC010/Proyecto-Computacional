@@ -10,6 +10,7 @@ def norma_Cuadrada(psi):
     cuyos componentes son las normas de cada entrada del vector original.
 
     Examples:
+        >>> import numpy as np
         >>> norma_cuadrada(np.array([1.0 - 1.0j, 2.0 - 2.0j, 3.0]))
         [2.0, 8.0, 9.0]
 
@@ -17,8 +18,8 @@ def norma_Cuadrada(psi):
         psi (ndarray): Vector que contiene la dinámica del sistema.
        
     Returns:
-        ndarray: Devuelve un arreglo cuyas entradas son la norma dl cuadrado de los 
-                 componentes del vector original
+        ndarray: Devuelve un arreglo cuyas entradas corresponden a la norma al cuadrado
+                 de los corresponientes componentes del vector que recibe como argumento.                 
     """
 
     return np.abs(psi)**2

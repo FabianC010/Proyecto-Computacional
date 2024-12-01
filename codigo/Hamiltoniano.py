@@ -13,11 +13,13 @@ def crear_Hamil(epsilon, t_enr):
     la función levanta una excepción `ValueError`.
 
     Examples:
+        >>> import numpy as np
+        >>> import scipy.sparse as sp
         >>> crear_Hamil(np.array([1.0, 2.0, 3.0, 4.0]), np.array([1.0 ,2.0 ,3.0])).toarray()
-        [[1. 1. 0. 0.]
-        [1. 2. 2. 0.]
-        [0. 2. 3. 3.]
-        [0. 0. 3. 4.]]
+        array([[1. 1. 0. 0.],
+               [1. 2. 2. 0.],
+               [0. 2. 3. 3.],
+               [0. 0. 3. 4.]])
 
     Args:
         epsilon (ndarray): Primer argumento. Valores energéticos que son asignados a la diagonal principal.
@@ -31,8 +33,8 @@ def crear_Hamil(epsilon, t_enr):
     """
  
     if (t_enr.size == epsilon.size - 1):
-        Hamiltoniano = sp.diags([t_enr, epsilon, t_enr], offsets = [-1, 0, 1], shape = (epsilon.size, epsilon.size))
-        return Hamiltoniano
+        hamiltoniano = sp.diags([t_enr, epsilon, t_enr], offsets = [-1, 0, 1], shape = (epsilon.size, epsilon.size))
+        return hamiltoniano
 
     else:
         raise ValueError ("Valores energéticos no coinciden con el tamaño del Hamiltoniano.")
