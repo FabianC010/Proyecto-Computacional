@@ -8,8 +8,8 @@ def dyn_Generator(oper, state):
     Examples:
         >>> import numpy as np
         >>> dyn_Generator(np.array([[1.0, 1.0], [1.0, 0.0]]), np.array([[1.0, 0.0], [0.0, 0.0]]))
-        [[0.+1.j 0.+0.j],
-         [0.+0.j 0.+0.j]] 
+        array([[0.+1.j 0.+0.j],
+               [0.+0.j 0.+0.j]])
 
     Args:
         oper (array): Primer argumento. Es el operador lineal que ayudará a evaluar la dinámica del sistema. 
@@ -28,8 +28,8 @@ def rk4(func, oper, state, h):
 
     Examples:
         >>> rk4(dyn_Generator, np.array([[1.0, 1.0], [1.0, 0.0]]),  np.array([[1.0, 0.0], [1.0, 0.0]]), 1.0)
-        [[0.54166667+0.83333333j 0.        +0.j        ],
-         [0.54166667+0.83333333j 0.        +0.j        ]]
+        array([[0.54166667+0.83333333j 0.        +0.j        ],
+               [0.54166667+0.83333333j 0.        +0.j        ]])
 
     Args:
         func (function): Primer argumento. Es la función que genera la dinámica del sistema.

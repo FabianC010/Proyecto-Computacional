@@ -12,7 +12,7 @@ def norma_Cuadrada(psi):
     Examples:
         >>> import numpy as np
         >>> norma_cuadrada(np.array([1.0 - 1.0j, 2.0 - 2.0j, 3.0]))
-        [2.0, 8.0, 9.0]
+        array([2.0, 8.0, 9.0])
 
     Args:
         psi (ndarray): Vector que contiene la dinámica del sistema.
