@@ -17,6 +17,7 @@ def inicializacion(tamaño, epsilonValue, tValue, timeFinal, timeDivision):
 
     Examples: 
         >>> import numpy as np
+        >>> import scipy.sparse as sp
         >>> import Hamiltoniano as hm
         >>> inicializacion(5, 1.0, 1.0, 10.0, 5)
         array([0.+0.j 0.+0.j 1.+0.j 0.+0.j 0.+0.j]), <DIAgonal sparse matrix of dtype 'float64'
