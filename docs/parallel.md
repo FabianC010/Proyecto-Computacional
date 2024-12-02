@@ -2,7 +2,7 @@
 
 La escalabilidad de un programa en python se hace apartir de las bibliotecas precompiladas como numpy o bibliotecas externas.
 
-![aceleracion rk4](videos/RK4_aceleracion.png)
+![aceleracion rk4](https://github.com/FabianC010/Proyecto-Computacional/blob/main/docs/videos/RK4_aceleracion.png)
 
 El metodo de RK4 tiene una escalabilidad baja y se mantiene casi constante despues de 2 hilos, el proceso mas intensivo que puede limitar la aceleracion del proceso es producto de matrices de dyn_Generator
 
