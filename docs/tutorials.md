@@ -22,10 +22,10 @@ Las condiciones iniciales son que el tiempo inicie en 0 y la probabilidad de enc
 psi, hamiltoniano, times, h = inicializacion(100, 2.0, 1.0, 20.0, 1000)
 ```
 
-Elementos a tomas en cuenta:
+Aspectos a tomar en cuenta:
 
 1. Si se desea poner valores específicos de $\epsilon_i$ y $t_i$, se debe de hacer manualmente. Se puede hacer de manera sencilla con las opereaciones [a:b] de las listas.
-2. El elemento $h$ debe ser bastante pequeño en comparación al tamaño de la grilla para RK4, de otros modos el método  presenta fallos.
+2. Según los cálculo, el valor $h$ debe de ser un orden de magnitud menor para el RK4 en comparación a diagonalización, de otros modos, el método puede presentar errores en los resultados
 
 Con las variables asociadas a los valores deseados, veremos cómo resolver el problema con las dos metodologías elegidas.
 
