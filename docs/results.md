@@ -29,7 +29,7 @@
 </video>
 
 <video width="560" height="315" controls>
-  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4E25.mp4" type="video/mp4">
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE15.mp4" type="video/mp4">
 </video>
 
 
