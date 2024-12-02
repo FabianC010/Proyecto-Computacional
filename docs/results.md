@@ -17,6 +17,10 @@
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4E10.mp4" type="video/mp4">
 </video>
 
+EN ESTE CASO RK4 USÓ 1000 DIVISIONES TEMPORALES Y EL RESULTADO DIFIERE DE DIAG, HABLAR DE ERRORES. DIAG TAMBIÉN USÓ 1000
+
+
+
 <video width="560" height="315" controls>
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE10.mp4" type="video/mp4">
 </video>

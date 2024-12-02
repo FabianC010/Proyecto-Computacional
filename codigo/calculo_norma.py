@@ -6,8 +6,8 @@ def norma_Cuadrada(psi):
     """Cálculo de la norma al cuadrado de cada componente de un vector psi.
 
     La función recibe un vector psi (cuyos componentes pueden ser complejos),y calcula 
-    la norma de cada uno de sus componentes, y devuelve un arreglo, nuevo vector 
-    cuyos componentes son las normas de cada entrada del vector original.
+    la norma de cada uno de sus componentes, y devuelve un arreglo, un nuevo vector 
+    cuyos componentes son las normas al cuadrado de cada entrada del vector original.
 
     Examples:
         >>> import numpy as np

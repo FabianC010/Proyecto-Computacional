@@ -29,7 +29,7 @@ def crear_Hamil(epsilon, t_enr):
         ValueError: Si t_enr.size no es igual a epsilon.size - 1.
 
     Returns:
-        Hamiltoniano (ndarray): Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden
+        hamiltoniano (ndarray): Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden
     """
  
     if (t_enr.size == epsilon.size - 1):

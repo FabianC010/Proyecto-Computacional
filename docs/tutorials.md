@@ -34,22 +34,25 @@ Con las variables asociadas a los valores deseados, veremos cómo resolver el pr
 Para encontrar la solución mediante el método de Runge-Kutta de orden 4, utilizaremos nuevamente el módulo `sm` (importado al principio) y su función **simulacion_Rk**. Esta función toma como argumento las cuatro variables antes definidas. Dentro de sí, llama a la implementación del método RK4 y a la función que genera la dinámica según lo plantea la ecuación de Schrödinger ([Explicación](explanation.md)), ambas forman parte del módulo `rk4`. Con esto dicho, es necesario crear un contenedor donde se guarden los resultados, que son las probabilidades de ocupación por el fermión de cada espacio de la grilla por cada instante temporal:
 
 ``` py
-state_quantr = simulacion_Rk(psi, hamiltoniano, times, h)
+stateQuantR = simulacion_Rk(psi, hamiltoniano, times, h)
 ```
 
-La _r_ al final de `state_quantr` es para denotar el método que se está usando. Lo que se obtiene es un _object_ que contiene listas de las probabilidades en cada momento.
+La _R_ al final de `stateQuant` es para denotar el método que se está usando. Lo que se obtiene es un _object_ que contiene listas de las probabilidades en cada momento.
 
 ## Diagonalización 
 
-También, se puede encontrar la solución mediante el método de diagonalización del Hamiltoniano. Para este caso, invocamos a la función de `sm` **simulacion_Diag**, que recibe los mismos argumentos que su contraparte del método RK4. En su interior, realiza llamados a las funciones **exps** (solución formal a la ecuación de Schrödinger [Explicación](explanation.md)) y **sol_Vector** del módulo `Diag`. Con este método, atacamos el problema con la base donde el Hamiltoniano es diagonal. Por ello, la función tiene que reconstruir el Hamiltoniano en su totalidad para obtener todos los autovalores y autovectores de este mismo. 
+También, se puede encontrar la solución mediante el método de diagonalización del Hamiltoniano. Para este caso, invocamos a la función de `sm` **simulacion_Diag**, que recibe los mismos argumentos que su contraparte del método RK4. En su interior, realiza llamados a las funciones **exps** (solución formal a la ecuación de Schrödinger [Explicación](explanation.md)) y **sol_Vector** del módulo `Diag`. Con este método, atacamos el problema con la base donde el Hamiltoniano es diagonal. Por ello, la función tiene que reconstruir el Hamiltoniano en su totalidad para obtener todos los autovalores y autovectores de este mismo, esto tomará unos segundos. Si se desea aumentar el tamañano de la grilla, el tiempo de ejecución tomará un rato. 
 
 Volvemos a definir un contenedor que tendrá los valores de probabilidad en cada instante temporal 
 
 ``` py
-state_quantd = simulacion(psi, hamiltoniano, times, h)
+stateQuantD = simulacion_Diag(psi, hamiltoniano, times, h)
 ```
 
-La documentación de todas las funciones empleadas se ecuentran en el apartado de [referencias](reference.md)
+Con esto hecho, ya se tienen las probabilidades de encontrar al fermión en cada sitio de la grilla definida a lo largo de 20 segundos, guardadas en los contenedores `stateQuantR` y `stateQuantD`. Para acceder a los resultados de forma manual, se pueden manejar como índices de lista, devolverá un arreglo con las probabilidades en cada punto del espacio en el instante definido.   
+    
+ 
+_La documentación de todas las funciones empleadas se ecuentran en el apartado de_ [referencias](reference.md)
 
 ## Animaciones
 Ya teniendo el comportamiento del sistema, se pueden hacer animaciones en las que se grafiquen las probabilidades de encontrar al fermión en los diferentes puntos de la grilla. Esta gráfica va cambiando para cada tiempo.
