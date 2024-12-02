@@ -63,7 +63,6 @@ def simulacion_Rk(psi, hamiltoniano, times, h):
 
     Examples: 
         >>> import rk4 as rk
-        >>> import calculo_norma as cn
         >>> # Inicialización de parámetros
         >>> psi, hamiltoniano, times, h = inicializacion(5, 1.0, 1.0, 10.0, 5)
         >>> simulacion_Rk(psi, hamiltoniano, times, h)
@@ -105,6 +104,7 @@ def simulacion_Diag(psi, hamiltoniano, times, h):
 
     Examples: 
         >>> import Diag as dg
+        >>> import calculo_norma as cn
         >>> # Inicialización de parámetros
         >>> psi, hamiltoniano, times, h = inicializacion(5, 1.0, 1.0, 10.0, 5)
         >>> simulacion_Diag(psi, hamiltoniano, times, h)
