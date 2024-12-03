@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -472,55 +472,37 @@
 
 <h1 id="tutorial">Tutorial</h1>
 <h2 id="planteamiento-inicial">Planteamiento inicial</h2>
-<p>Vamos a trabajar con una grilla de tamaño 100 <span class="arithmatex">\(\times\)</span> 100 y con un único fermión que se encontrará en el medio de la grilla. Lo primero que se debe hacer es crear un vector <code>psi</code>, cuyo tamaño representa el tamaño de la grilla y el valor de la norma al cuadrado de la entrada <span class="arithmatex">\(c_i\)</span>, la probabilidad de encontrar al fermión en dicho punto. Para realizar las operaciones se necesita de la biblioteca <code>numpy</code>, por eso hay que importarla junto al resto de módulos que ocupamos. Usaremos elementos de tipo <em>float</em> para una mejor representación de las probabilidades.</p>
+<p>Vamos a trabajar con una grilla de tamaño 100 <span class="arithmatex">\(\times\)</span> 100 y con un único fermión que se encontrará en el medio de la grilla. Asimismo, vamos a plantear que los valores que toman los <span class="arithmatex">\(\epsilon_i\)</span> y <span class="arithmatex">\(t_i\)</span> que construyen el hamiltoniano del sistema (<a href="../">Índice</a>), son homogéneos entre sus iguales.Lo primero que se debe hacer es importar los módulos necesarios que contienen las funciones apropiadas para evaluar la dinámica del sitema cuántico. Entre ellos se encuentran <code>numpy</code> y <code>scipy</code>. </p>
 <pre><code class="language-py">import numpy as np
+import scipy.sparse as sp
 import Hamiltoniano as hm
 import as rk
-import Diag as dg.
+import Diag as dg
 import calculo_norma as cn
+import simulacion as sm
 </code></pre>
-<pre><code class="language-py">psi = np.zeros(100, dtype = float)
-psi[100//2] = 1.0
+<p>Seguidamente, vamos a invocar a la función <strong>inicialización</strong> del módulo simulación. Esta función requiere de 5 parámetros: el tamaño de la grilla, el valor que toman los <span class="arithmatex">\(\epsilon_i\)</span>, el valor de los <span class="arithmatex">\(t_i\)</span>, el tiempo final del estudio del sistema y la cantidad de momentos temporales que se desean evaluar. Para este ejemplo utilizaremos <span class="arithmatex">\(\epsilon = 2.0\)</span> y <span class="arithmatex">\(t = 1.0\)</span>. Asimismo, evaluaremos 20 segundos divididos en 1000 momentos temporales</p>
+<p>Las condiciones iniciales son que el tiempo inicie en 0 y la probabilidad de encontrar al fermión en el medio de la grilla es <span class="arithmatex">\(= 1\)</span>, esto implica que en el resto de la grilla es de 0. Dentro de la función antes mencionada, se genera un vector con dichas características y también se crea un Hamiltoniano con la característica de ser tridiagonal y cuadrado. Para el manejo de memoria, el Hamiltoniano se crea como una <em>matriz dispersa</em>, lo que implica que solo se guardan las entradas no nulas con sus respectivas "coordenadas". Ahora bien, la función devuelve el vector con el fermión en medio de la grilla, el Hamiltoniano que describe la dinámica del sistema, una lista con los instantes temporales deseados y por último, la separación que existe entre cada instante.</p>
+<pre><code class="language-py">psi, hamiltoniano, times, h = inicializacion(100, 2.0, 1.0, 20.0, 1000)
 </code></pre>
-<p>La condición inicial es que <span class="arithmatex">\(t = 0\)</span>, la probabilidad de encontrar al fermión en el medio de la grilla es <span class="arithmatex">\(= 1\)</span>, esto implica que en el resto de la grilla es de 0. En la segunda línea derreferenciamos el elemento <code>100//2</code> de <em>psi</em>. Los índices de las listas son <em>integers</em>, por eso es necesario usar el operador <span class="arithmatex">\(//\)</span> que realiza una división de enteros y su resultado es el cociente de la división sin el resto. Una vez construido el estado inicial del sistema, debemos crear el hamiltoniano, cuyas características principales son ser tridiagonal y cuadrado. Para ello, se invoca a la función <strong>crear_Hamil</strong> del módulo <code>Hamiltoniano</code>. Sin embargo, primero debemos definir los valores que toman los <span class="arithmatex">\(\epsilon_i\)</span> y <span class="arithmatex">\(t_i\)</span> que construyen el hamiltoniano del sistema (<a href="../">Índice</a>). En este ejemplo, planteamos un sistema donde estos valores son similares. </p>
-<pre><code class="language-py">epsilon = np.full(100, 2.0)
-t_enr = np.full (99, 1.0)
-hamiltoniano = hm.crear_Hamil(epsilon, t_enr)
-</code></pre>
-<p>La función <strong>full</strong> genera un <em>ndarray</em> cuyos elementos son todos iguales al segundo parámetro que recibe. Ahora bien, vamos a plantear el tiempo de estudio del sistema. Tomaremos desde 0 hasta 20 segundos para ver cómo es la evolución temporal de las probabilidades de encontrar al fermión en los distintos espacios de la grilla. La función <strong>linspace</strong> del módulo de <code>numpy</code> es la elegida para crear un arreglo cuyos elementos tienen una diferencia homogénea entre sí. Dividiremos los 20 segundos en 1000 momentos temporales.</p>
-<pre><code class="language-py">times = np.linspace(0.0, 10.0, 1000)
-temp_dif = times[1] - times[0]
-</code></pre>
-<p>Cómo se mencionó anteriormente, <strong>linspace</strong> genera elementos con una diferencia entre ellos, <code>temp_dif</code> se encarga de almacenar esta diferencia ya que es importante para los cálculos posteriores. </p>
-<p>Seguidamente, veremos cómo resolver el problema con las dos metodologías elegidas.</p>
+<p>Aspectos a tomar en cuenta:</p>
+<ol>
+<li>Si se desea poner valores específicos de <span class="arithmatex">\(\epsilon_i\)</span> y <span class="arithmatex">\(t_i\)</span>, se debe de hacer manualmente. Se puede hacer de manera sencilla con las opereaciones [a:b] de las listas.</li>
+<li>Según los cálculo, el valor <span class="arithmatex">\(h\)</span> debe de ser un orden de magnitud menor para el RK4 en comparación a diagonalización, de otros modos, el método puede presentar errores en los resultados</li>
+</ol>
+<p>Con las variables asociadas a los valores deseados, veremos cómo resolver el problema con las dos metodologías elegidas.</p>
 <h2 id="rk4">RK4</h2>
-<p>Para encontrar la solución mediante el método de Runge-Kutta de orden 4, utilizaremos el módulo <code>rk4</code> (importado al principio), el cual contiene la implementación del método y la función que genera la dinámica según lo plantea la ecuación de Schrödinger (<a href="../explanation/">Explicación</a>). Con esto dicho, es necesario crear un contenedor donde se guarden las probabilidades de ocupación por el fermión de cada espacio de la grilla por cada instante temporal:</p>
-<pre><code class="language-py">state_quantr = np.zeros(times.size, dtype = object)
+<p>Para encontrar la solución mediante el método de Runge-Kutta de orden 4, utilizaremos nuevamente el módulo <code>sm</code> (importado al principio) y su función <strong>simulacion_Rk</strong>. Esta función toma como argumento las cuatro variables antes definidas. Dentro de sí, llama a la implementación del método RK4 y a la función que genera la dinámica según lo plantea la ecuación de Schrödinger (<a href="../explanation/">Explicación</a>), ambas forman parte del módulo <code>rk4</code>. Con esto dicho, es necesario crear un contenedor donde se guarden los resultados, que son las probabilidades de ocupación por el fermión de cada espacio de la grilla por cada instante temporal:</p>
+<pre><code class="language-py">stateQuantR = simulacion_Rk(psi, hamiltoniano, times, h)
 </code></pre>
-<p>La <em>r</em> al final de <code>state_quantr</code> es para denotar el método que se está usando. Presenta <code>dtype = object</code> porque contienen vectores.</p>
-<p>Bien, es momento de iniciar la evaluación del comportamiento del sistema. Para ello, vamos a iniciar un <em>for loop</em> para evaluar cada momento temporal e invocamos a la función <strong>rk4</strong> de <code>rk</code>. Nuevamente, lo que queremos visualizar son las probabilidades de encontrar al fermión, las cuales son representadas por la norma al cuadrado de cada entrada de <code>psi</code>, para esto llamamos a <strong>norma_Cuadrada</strong> del módulo <code>calculo_norma</code>. El procedimiento sería el siguiente:</p>
-<pre><code class="language-py">for tt in range(times.size):
-    psi = rk.rk4(rk.dynGenerator, hamiltoniano, psi, temp_dif) # Se calcula el nuevo estado del sistema
-    state_quantr[tt] = cn.norma_Cuadrada(psi)
-</code></pre>
-<p>En el instante <em>tt</em> se calcula el estado del sistema un paso adelante en el tiempo y <code>psi</code> adquiere las propiedades de ese sistema. Se realiza el cálculo de las normas al cuadrado, las probabilidades se guardan en el contenedor y se repite para todos los tiempos.</p>
+<p>La <em>R</em> al final de <code>stateQuant</code> es para denotar el método que se está usando. Lo que se obtiene es un <em>object</em> que contiene listas de las probabilidades en cada momento.</p>
 <h2 id="diagonalizacion">Diagonalización</h2>
-<p>También, se puede encontrar la solución mediante el método de diagonalización. Para esto utilizaremos el módulo <code>Diag</code>, el cual contiene la implementación del método y la función que genera la dinámica según lo plantea la solución de la ecuación de Schrödinger (<a href="../explanation/">Explicación</a>). Ahora, hacemos un proceso análogo al que hicimos con <strong>RK4</strong>.</p>
-<pre><code class="language-py">psi = np.zeros(100, dtype = float)
-psi[100//2] = 1.0
+<p>También, se puede encontrar la solución mediante el método de diagonalización del Hamiltoniano. Para este caso, invocamos a la función de <code>sm</code> <strong>simulacion_Diag</strong>, que recibe los mismos argumentos que su contraparte del método RK4. En su interior, realiza llamados a las funciones <strong>exps</strong> (solución formal a la ecuación de Schrödinger <a href="../explanation/">Explicación</a>) y <strong>sol_Vector</strong> del módulo <code>Diag</code>. Con este método, atacamos el problema con la base donde el Hamiltoniano es diagonal. Por ello, la función tiene que reconstruir el Hamiltoniano en su totalidad para obtener todos los autovalores y autovectores de este mismo, esto tomará unos segundos. Si se desea aumentar el tamañano de la grilla, el tiempo de ejecución tomará un rato. </p>
+<p>Volvemos a definir un contenedor que tendrá los valores de probabilidad en cada instante temporal </p>
+<pre><code class="language-py">stateQuantD = simulacion_Diag(psi, hamiltoniano, times, h)
 </code></pre>
-<p>Esto lo volvemos a hacer para volver a tener el arreglo del estado inicializado con valores de 0.0 y un 1.0 en medio de la grilla. No importa borrar los datos que contenía porque los que interesan ya están guardados en state_quantr.</p>
-<pre><code class="language-py">state_quantd = np.zeros(times.size, dtype = object)
-</code></pre>
-<p>Se crea un arreglo para contener las probabilidades de ocupación del fermión en cada instante temporal para este método. Ahora, ocupamos calcular los autovectores y autovalores del Hamiltoniano. Para ello, utilizaremos la función <strong>eigh</strong> de <code>np.linalg</code>, la cual nos hace el cálculo.</p>
-<pre><code class="language-py">eigVals, eigVecs = np.linalg.eigh(hamiltoniano)
-</code></pre>
-<p>Con esto listo, tenemos todas las variables necesarias para evaluar la dinámica del sistema con esta metodología numérica. Para ello, vamos a iniciar un <em>for loop</em> para evaluar cada momento temporal e invocamos a la función <strong>sol_Vector</strong> de <code>dg</code>. Al igual que en <strong>RK4</strong> lo que ocupamos son las probabilidades de encontrar al fermión, entonces ocupamos a la función <strong>norma_Cuadrada</strong> del módulo <code>calculo_norma</code>. El procedimiento sería el siguiente:</p>
-<pre><code class="language-py">for tt in range(times.size):
-  psi = dg.sol_Vector(eigVecs, eigVals, hamiltonian, psi, temp_dif)
-  state_quantd[tt] = cn.norma_cuadrada(psi)
-</code></pre>
-<p>En el <em>for loop</em> se calculó el estado del sistema avanzado en el tiempo. Luego, se calculó la norma de cada entrada y se guardó en el contenedor. Esto se repitió para todos los tiempos.</p>
+<p>Con esto hecho, ya se tienen las probabilidades de encontrar al fermión en cada sitio de la grilla definida a lo largo de 20 segundos, guardadas en los contenedores <code>stateQuantR</code> y <code>stateQuantD</code>. Para acceder a los resultados de forma manual, se pueden manejar como índices de lista, devolverá un arreglo con las probabilidades en cada punto del espacio en el instante definido.   </p>
+<p><em>La documentación de todas las funciones empleadas se ecuentran en el apartado de</em> <a href="../reference/">referencias</a></p>
 <h2 id="animaciones">Animaciones</h2>
 <p>Ya teniendo el comportamiento del sistema, se pueden hacer animaciones en las que se grafiquen las probabilidades de encontrar al fermión en los diferentes puntos de la grilla. Esta gráfica va cambiando para cada tiempo.</p>
 <h3 id="runge-kutta-4">Runge-Kutta 4</h3>
@@ -532,8 +514,6 @@ psi[100//2] = 1.0
 <video width="560" height="315" controls>
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_diag_tutorial.mp4" type="video/mp4">
 </video>
-
-<p>La documentación de estas funciones se ecuentran en el apartado de <a href="../reference/">referencias</a></p>
 
 
 
@@ -583,7 +563,7 @@ psi[100//2] = 1.0
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../javascripts/mathjax.js"></script>
       

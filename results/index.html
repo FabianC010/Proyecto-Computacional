@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.38">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.46">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6f8fc17f.min.css">
       
       
 
@@ -282,18 +282,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#valores" class="md-nav__link">
+  <a href="#epsilon_i-1-y-t_i-10" class="md-nav__link">
     <span class="md-ellipsis">
-      Valores
+      \(\epsilon_i = 1\) y \(t_i = 10\)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#potencial-significativo" class="md-nav__link">
+  <a href="#epsilon_i-10-y-t_i-1" class="md-nav__link">
     <span class="md-ellipsis">
-      Potencial Significativo
+      \(\epsilon_i = 10\) y \(t_i = 1\)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-en-medio-de-la-grilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial en medio de la grilla
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-significativo-en-medio-de-la-grilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial significativo en medio de la grilla
     </span>
   </a>
   
@@ -354,18 +372,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#valores" class="md-nav__link">
+  <a href="#epsilon_i-1-y-t_i-10" class="md-nav__link">
     <span class="md-ellipsis">
-      Valores
+      \(\epsilon_i = 1\) y \(t_i = 10\)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#potencial-significativo" class="md-nav__link">
+  <a href="#epsilon_i-10-y-t_i-1" class="md-nav__link">
     <span class="md-ellipsis">
-      Potencial Significativo
+      \(\epsilon_i = 10\) y \(t_i = 1\)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-en-medio-de-la-grilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial en medio de la grilla
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-significativo-en-medio-de-la-grilla" class="md-nav__link">
+    <span class="md-ellipsis">
+      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial significativo en medio de la grilla
     </span>
   </a>
   
@@ -387,8 +423,53 @@
 
 
 <h1 id="resultados">Resultados</h1>
-<h2 id="valores">Valores</h2>
-<h2 id="potencial-significativo">Potencial Significativo</h2>
+<p>La dinámica del fermión depende totalmente de sus parámetros enérgeticos. A continuación, se observarán algunos casos con energías diferentes para estudiar su comportamiento. Tome en cuenta que <span class="arithmatex">\(\epsilon\)</span> representa la energía potencial y  <span class="arithmatex">\(t\)</span> la energía cinética.</p>
+<h2 id="epsilon_i-1-y-t_i-10"><span class="arithmatex">\(\epsilon_i = 1\)</span> y <span class="arithmatex">\(t_i = 10\)</span></h2>
+<p>En este caso, hay mucha energía cinética en comparación con la energía potencial.</p>
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4T10.mp4" type="video/mp4">
+</video>
+
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagT10.mp4" type="video/mp4">
+</video>
+
+<p>Como podemos observar, las probabilidades de encontrar el fermión en una posición están muy distribuidas y además van cambiando a gran velocidad. Esto se debe a que hay mucha energía cinética, que es la "energía del movimiento".</p>
+<p>Por otro lado, se ve que la onda se refleja cuando llega al final de la grilla. No obstante, este comportamiento no es real, solo ocurre porque para el programa no existe espacio más allá de la grilla.</p>
+<h2 id="epsilon_i-10-y-t_i-1"><span class="arithmatex">\(\epsilon_i = 10\)</span> y <span class="arithmatex">\(t_i = 1\)</span></h2>
+<p>En este caso, hay mucha energía potencial en comparación a la energía cinética.</p>
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4E10.mp4" type="video/mp4">
+</video>
+
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE10.mp4" type="video/mp4">
+</video>
+
+<p>Se puede observar que la onda se mueve mucho más lento que antes. Esto se debe a la baja energía cinética. Aunque igual, las posiciones en las que es más probable encontrar al fermión se van alejando del centro de la grilla conforme pasa el tiempo.</p>
+<p>Por otra parte, el resultado obtenido con el método RK4 difiere un poco con el que se obtuvo con el método de diagonalización. Es más confiable el segundo, ya que el método es un poco más exacto dado la naturaleza tridiagonal del Hamiltoniano. La diferencia puede ser generada por errores de aproximación. Para resolverlo, se pudieron haber usado pasos temporales más pequeños. Aunque, en general, ambos métodos permiten observar la dinámica del sistema bastante bien. </p>
+<h2 id="epsilon_i-5-y-t_i-5-con-un-potencial-en-medio-de-la-grilla"><span class="arithmatex">\(\epsilon_i = 5\)</span> y <span class="arithmatex">\(t_i = 5\)</span> con un potencial en medio de la grilla</h2>
+<p>Ahora, el valor del enegía cinética es igual al de la energía potencial, excepto en el medio de la grilla, donde hay más energía potencial.</p>
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4E15.mp4" type="video/mp4">
+</video>
+
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE15.mp4" type="video/mp4">
+</video>
+
+<p>Como se puede observar, es más probable encontrar el fermión donde está el potencial. La mayoría de la probabilidad se mantiene ahí, aunque igual hay una pequeña parte que se va a alejando del centro de la grilla. Esto se debe a que esa energía potencial forma un especie de pozo, llamado pozo de potencial. En este caso, ese pozo es pequeño, por lo que el fermión tiene suficiente energía para superarlo.</p>
+<h2 id="epsilon_i-5-y-t_i-5-con-un-potencial-significativo-en-medio-de-la-grilla"><span class="arithmatex">\(\epsilon_i = 5\)</span> y <span class="arithmatex">\(t_i = 5\)</span> con un potencial significativo en medio de la grilla</h2>
+<p>Por último, se estudiará el mismo caso anterior pero ahora con un potencial más significativo en el medio de la grilla.</p>
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4E25.mp4" type="video/mp4">
+</video>
+
+<video width="560" height="315" controls>
+  <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE25.mp4" type="video/mp4">
+</video>
+
+<p>Como se puede observar, el comportamiento fue casi el mismo que con el potencial anterior. Lo que cambió es que ahora no hay una parte de las probabilidades que se van alejando del centro de la grilla. En este caso, el pozo de potencial es muy grande, entonces el fermión no tiene suficiente energía para superarlo. Por esta razón, el fermión siempre se encuentra ahí.</p>
 
 
 
@@ -438,7 +519,7 @@
     <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.d6f25eb3.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
         <script src="../javascripts/mathjax.js"></script>
       
