@@ -15,7 +15,7 @@ psi[1500//2] = 1.0
 
 hamiltoniano = hm.crear_Hamil(epsilon, t_enr)
 
-times = np.linspace(0.0, 10.0, 100)
+times = np.linspace(0.0, 100.0, 10000)
 h = times[1] - times[0]
 
 startTime1 = time.time()
@@ -39,10 +39,11 @@ startTime2 = time.time()
 
 stateQuant2 = np.zeros(times.size, dtype = object)
 
-eigVals, eigVecs = np.linalg.eigh(hamiltoniano)
+hamiltoniano_arr = hamiltoniano.toarray()
+eigVals, eigVecs = np.linalg.eigh(hamiltoniano_arr)
 
 for tt in range(times.size):
-    psi = dg.sol_Vector(eigVecs, eigVals, hamiltoniano, psi, h)
+    psi = dg.sol_Vector(eigVecs, eigVals, psi, h)
     stateQuant2[tt] = cn.norma_Cuadrada(psi)
 
 endTime2 = time.time()

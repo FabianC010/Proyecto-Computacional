@@ -16,7 +16,7 @@ def dyn_Generator(oper, state):
         state (array): Segundo argumento. Es el estado en el que se encuentra el sistema al momento de evaluarlo. 
 
     Returns:
-       (array): Retorna la multiplicación de la constante compleja por el operador lineal y el estado del sistema.
+       (array): Retorna la multiplicación del opuesto de la constante compleja por el operador lineal y el estado del sistema.
 
     """
     return -1.0j * oper.dot(state)
@@ -38,7 +38,7 @@ def rk4(func, oper, state, h):
         h (float): Cuarto argumento. Es el tiempo trascurrido desde el estado anterior hasta el que se está calculando.
 
     Returns:        
-        (array): Retorna la suma del estado anterior más un sexto de h por la suma del k_1 + 2*k_2 + 2*k_3 + k_4.
+        (array): Retorna la suma del estado anterior más un sexto de h por la suma del k1 + 2*k2 + 2*k3 + k4.
     """
     k1 = func(oper, state)
     k2 = func(oper, state + (h * k1) / 2.0)
