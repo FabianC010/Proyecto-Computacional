@@ -75,7 +75,7 @@ import cProfile
  
 #epsilon = np.full(1500, 5.0)
 #t_enr = np.full(1499, 5.0)
-#t_enr[700:781] = 5.0
+#t_enr[700:781] = 15.0
 #psi5 = np.zeros(1500, dtype=complex)
 #psi5[1500//2] = 1.0
 
@@ -110,7 +110,7 @@ import cProfile
 
 # Paralelización
 
-#psiP, hamiltonianoP, timesP, hP = sm.inicializacion(50, 1.0, 1.0, 10.0, 1000)
+#psiP, hamiltonianoP, timesP, hP = sm.inicializacion(5000, 1.0, 1.0, 10.0, 1000)
 
 #cProfile.run('sm.simulacion_Rk(psiP, hamiltonianoP, timesP, hP)')
 #cProfile.run('sm.simulacion_Rk(psiP, hamiltonianoP, timesP, hP)')
