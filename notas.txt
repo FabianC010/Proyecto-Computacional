@@ -1,6 +1,0 @@
-Correcciones a Diag y a rk4.
-Añadir help() a la documentación.
-Evaluar: N = 1000-1500, t muy pequeños y epsilon grande (viceversa), valores similares.
-main
-Limpiar archivos
-Paralelización 
