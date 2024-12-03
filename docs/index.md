@@ -12,3 +12,5 @@ $$
 
 donde los $\hat{c}_i$ son operadores de destrucción fermiónica y los $\hat{c}_i^\dagger$ operadores de creación para el sitio de la grilla
 $i$. Para el caso de un solo fermión en la grilla, este Hamiltoniano es una matriz de dimensión N de carácter tridiagonal. El comportamiento del sistema depende de los parámetros energéticos $t_i$ y $\epsilon_i$. En este proyecto, el estado inicial del sistema consiste en un fermión en el medio de la grilla.
+
+Para ver la documentación completa, visite [github.com](https://github.com/FabianC010/Proyecto-Computacional.git)
