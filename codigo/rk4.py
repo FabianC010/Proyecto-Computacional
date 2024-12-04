@@ -33,8 +33,8 @@ def rk4(func, oper, state, h):
 
     Args:
         func (function): Primer argumento. Es la función que genera la dinámica del sistema.
-        oper (array: Segundo argumento. Es el operador lineal.
-        state (array): Tercer argumento. Es el estado del sistema dinámico.
+        oper (ndarray: Segundo argumento. Es el operador lineal.
+        state (ndarray): Tercer argumento. Es el estado del sistema dinámico.
         h (float): Cuarto argumento. Es el tiempo trascurrido desde el estado anterior hasta el que se está calculando.
 
     Returns:        
