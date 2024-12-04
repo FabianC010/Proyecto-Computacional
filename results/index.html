@@ -300,9 +300,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-en-medio-de-la-grilla" class="md-nav__link">
+  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-moderado-en-medio-de-la-grilla" class="md-nav__link">
     <span class="md-ellipsis">
-      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial en medio de la grilla
+      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial moderado en medio de la grilla
     </span>
   </a>
   
@@ -390,9 +390,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-en-medio-de-la-grilla" class="md-nav__link">
+  <a href="#epsilon_i-5-y-t_i-5-con-un-potencial-moderado-en-medio-de-la-grilla" class="md-nav__link">
     <span class="md-ellipsis">
-      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial en medio de la grilla
+      \(\epsilon_i = 5\) y \(t_i = 5\) con un potencial moderado en medio de la grilla
     </span>
   </a>
   
@@ -423,7 +423,7 @@
 
 
 <h1 id="resultados">Resultados</h1>
-<p>La dinámica del fermión depende totalmente de sus parámetros enérgeticos. A continuación, se observarán algunos casos con energías diferentes para estudiar su comportamiento. Tome en cuenta que <span class="arithmatex">\(\epsilon\)</span> representa la energía potencial y  <span class="arithmatex">\(t\)</span> la energía cinética.</p>
+<p>La dinámica del fermión depende totalmente de sus parámetros energéticos. A continuación, se observarán algunos casos con energías diferentes para estudiar su comportamiento. Tome en cuenta que <span class="arithmatex">\(\epsilon\)</span> representa la energía potencial y  <span class="arithmatex">\(t\)</span> la energía cinética.</p>
 <h2 id="epsilon_i-1-y-t_i-10"><span class="arithmatex">\(\epsilon_i = 1\)</span> y <span class="arithmatex">\(t_i = 10\)</span></h2>
 <p>En este caso, hay mucha energía cinética en comparación con la energía potencial.</p>
 <video width="560" height="315" controls>
@@ -447,8 +447,8 @@
 </video>
 
 <p>Se puede observar que la onda se mueve mucho más lento que antes. Esto se debe a la baja energía cinética. Aunque igual, las posiciones en las que es más probable encontrar al fermión se van alejando del centro de la grilla conforme pasa el tiempo.</p>
-<p>Por otra parte, el resultado obtenido con el método RK4 difiere un poco con el que se obtuvo con el método de diagonalización. Es más confiable el segundo, ya que el método es un poco más exacto dado la naturaleza tridiagonal del Hamiltoniano. La diferencia puede ser generada por errores de aproximación. Para resolverlo, se pudieron haber usado pasos temporales más pequeños. Aunque, en general, ambos métodos permiten observar la dinámica del sistema bastante bien. </p>
-<h2 id="epsilon_i-5-y-t_i-5-con-un-potencial-en-medio-de-la-grilla"><span class="arithmatex">\(\epsilon_i = 5\)</span> y <span class="arithmatex">\(t_i = 5\)</span> con un potencial en medio de la grilla</h2>
+<p>Por otra parte, el resultado obtenido con el método RK4 difiere un poco con el que se obtuvo con el método de diagonalización. Es más confiable el segundo, ya que el método es un poco más exacto dado la naturaleza tridiagonal del Hamiltoniano. La diferencia puede ser generada por errores de aproximación o porque se tenían que usar pasos temporales más pequeños. Aunque, en general, ambos métodos permiten observar la dinámica del sistema bastante bien. </p>
+<h2 id="epsilon_i-5-y-t_i-5-con-un-potencial-moderado-en-medio-de-la-grilla"><span class="arithmatex">\(\epsilon_i = 5\)</span> y <span class="arithmatex">\(t_i = 5\)</span> con un potencial moderado en medio de la grilla</h2>
 <p>Ahora, el valor del enegía cinética es igual al de la energía potencial, excepto en el medio de la grilla, donde hay más energía potencial.</p>
 <video width="560" height="315" controls>
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4E15.mp4" type="video/mp4">
@@ -458,7 +458,7 @@
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE15.mp4" type="video/mp4">
 </video>
 
-<p>Como se puede observar, es más probable encontrar el fermión donde está el potencial. La mayoría de la probabilidad se mantiene ahí, aunque igual hay una pequeña parte que se va a alejando del centro de la grilla. Esto se debe a que esa energía potencial forma un especie de pozo, llamado pozo de potencial. En este caso, ese pozo es pequeño, por lo que el fermión tiene suficiente energía para superarlo.</p>
+<p>Como se puede observar, es más probable encontrar el fermión donde está el potencial. La mayoría de la probabilidad se mantiene ahí, aunque igual hay una pequeña parte que se va a alejando del centro de la grilla. Esto se debe a que esa energía potencial forma un especie de pozo, llamado pozo de potencial. En este caso es pequeño, por lo que el fermión tiene suficiente energía para superarlo.</p>
 <h2 id="epsilon_i-5-y-t_i-5-con-un-potencial-significativo-en-medio-de-la-grilla"><span class="arithmatex">\(\epsilon_i = 5\)</span> y <span class="arithmatex">\(t_i = 5\)</span> con un potencial significativo en medio de la grilla</h2>
 <p>Por último, se estudiará el mismo caso anterior pero ahora con un potencial más significativo en el medio de la grilla.</p>
 <video width="560" height="315" controls>
@@ -469,7 +469,7 @@
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE25.mp4" type="video/mp4">
 </video>
 
-<p>Como se puede observar, el comportamiento fue casi el mismo que con el potencial anterior. Lo que cambió es que ahora no hay una parte de las probabilidades que se van alejando del centro de la grilla. En este caso, el pozo de potencial es muy grande, entonces el fermión no tiene suficiente energía para superarlo. Por esta razón, el fermión siempre se encuentra ahí.</p>
+<p>Como se puede observar, el comportamiento fue casi el mismo que con el potencial anterior. Lo que cambió es que ahora no hay una parte de las probabilidades que se van alejando del centro de la grilla. En este caso, el pozo de potencial es muy grande, entonces el fermión no tiene suficiente energía cinética para escapar de él. Por esta razón, el fermión siempre se encuentra ahí.</p>
 
 
 

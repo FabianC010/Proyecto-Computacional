@@ -472,7 +472,7 @@
 
 <h1 id="tutorial">Tutorial</h1>
 <h2 id="planteamiento-inicial">Planteamiento inicial</h2>
-<p>Vamos a trabajar con una grilla de tamaño 100 <span class="arithmatex">\(\times\)</span> 100 y con un único fermión que se encontrará en el medio de la grilla. Asimismo, vamos a plantear que los valores que toman los <span class="arithmatex">\(\epsilon_i\)</span> y <span class="arithmatex">\(t_i\)</span> que construyen el hamiltoniano del sistema (<a href="../">Índice</a>), son homogéneos entre sus iguales.Lo primero que se debe hacer es importar los módulos necesarios que contienen las funciones apropiadas para evaluar la dinámica del sitema cuántico. Entre ellos se encuentran <code>numpy</code> y <code>scipy</code>. </p>
+<p>Vamos a trabajar con una grilla de tamaño 100 <span class="arithmatex">\(\times\)</span> 100 y con un único fermión que se encontrará en el medio de la grilla. Asimismo, vamos a plantear que los valores que toman los <span class="arithmatex">\(\epsilon_i\)</span> y <span class="arithmatex">\(t_i\)</span> que construyen el hamiltoniano del sistema (<a href="../">Índice</a>), son homogéneos entre sus iguales .Lo primero que se debe hacer es importar los módulos necesarios que contienen las funciones apropiadas para evaluar la dinámica del sitema cuántico. Entre ellos se encuentran <code>numpy</code> y <code>scipy</code>. </p>
 <pre><code class="language-py">import numpy as np
 import scipy.sparse as sp
 import Hamiltoniano as hm
@@ -481,14 +481,14 @@ import Diag as dg
 import calculo_norma as cn
 import simulacion as sm
 </code></pre>
-<p>Seguidamente, vamos a invocar a la función <strong>inicialización</strong> del módulo simulación. Esta función requiere de 5 parámetros: el tamaño de la grilla, el valor que toman los <span class="arithmatex">\(\epsilon_i\)</span>, el valor de los <span class="arithmatex">\(t_i\)</span>, el tiempo final del estudio del sistema y la cantidad de momentos temporales que se desean evaluar. Para este ejemplo utilizaremos <span class="arithmatex">\(\epsilon = 2.0\)</span> y <span class="arithmatex">\(t = 1.0\)</span>. Asimismo, evaluaremos 20 segundos divididos en 1000 momentos temporales</p>
+<p>Seguidamente, vamos a invocar a la función <strong>inicialización</strong> del módulo simulación. Esta función requiere de 5 parámetros: el tamaño de la grilla, el valor que toman los <span class="arithmatex">\(\epsilon_i\)</span>, el valor de los <span class="arithmatex">\(t_i\)</span>, el tiempo final del estudio del sistema y la cantidad de momentos temporales que se desean evaluar. Para este ejemplo utilizaremos <span class="arithmatex">\(\epsilon = 2.0\)</span> y <span class="arithmatex">\(t = 1.0\)</span>. Asimismo, evaluaremos 20 segundos divididos en 1000 momentos temporales.</p>
 <p>Las condiciones iniciales son que el tiempo inicie en 0 y la probabilidad de encontrar al fermión en el medio de la grilla es <span class="arithmatex">\(= 1\)</span>, esto implica que en el resto de la grilla es de 0. Dentro de la función antes mencionada, se genera un vector con dichas características y también se crea un Hamiltoniano con la característica de ser tridiagonal y cuadrado. Para el manejo de memoria, el Hamiltoniano se crea como una <em>matriz dispersa</em>, lo que implica que solo se guardan las entradas no nulas con sus respectivas "coordenadas". Ahora bien, la función devuelve el vector con el fermión en medio de la grilla, el Hamiltoniano que describe la dinámica del sistema, una lista con los instantes temporales deseados y por último, la separación que existe entre cada instante.</p>
 <pre><code class="language-py">psi, hamiltoniano, times, h = inicializacion(100, 2.0, 1.0, 20.0, 1000)
 </code></pre>
 <p>Aspectos a tomar en cuenta:</p>
 <ol>
 <li>Si se desea poner valores específicos de <span class="arithmatex">\(\epsilon_i\)</span> y <span class="arithmatex">\(t_i\)</span>, se debe de hacer manualmente. Se puede hacer de manera sencilla con las opereaciones [a:b] de las listas.</li>
-<li>Según los cálculo, el valor <span class="arithmatex">\(h\)</span> debe de ser un orden de magnitud menor para el RK4 en comparación a diagonalización, de otros modos, el método puede presentar errores en los resultados</li>
+<li>Según los cálculos, el valor <span class="arithmatex">\(h\)</span> debe de ser un orden de magnitud menor para el RK4 en comparación a diagonalización, de otros modos, el método puede presentar errores en los resultados</li>
 </ol>
 <p>Con las variables asociadas a los valores deseados, veremos cómo resolver el problema con las dos metodologías elegidas.</p>
 <h2 id="rk4">RK4</h2>
@@ -497,14 +497,14 @@ import simulacion as sm
 </code></pre>
 <p>La <em>R</em> al final de <code>stateQuant</code> es para denotar el método que se está usando. Lo que se obtiene es un <em>object</em> que contiene listas de las probabilidades en cada momento.</p>
 <h2 id="diagonalizacion">Diagonalización</h2>
-<p>También, se puede encontrar la solución mediante el método de diagonalización del Hamiltoniano. Para este caso, invocamos a la función de <code>sm</code> <strong>simulacion_Diag</strong>, que recibe los mismos argumentos que su contraparte del método RK4. En su interior, realiza llamados a las funciones <strong>exps</strong> (solución formal a la ecuación de Schrödinger <a href="../explanation/">Explicación</a>) y <strong>sol_Vector</strong> del módulo <code>Diag</code>. Con este método, atacamos el problema con la base donde el Hamiltoniano es diagonal. Por ello, la función tiene que reconstruir el Hamiltoniano en su totalidad para obtener todos los autovalores y autovectores de este mismo, esto tomará unos segundos. Si se desea aumentar el tamañano de la grilla, el tiempo de ejecución tomará un rato. </p>
-<p>Volvemos a definir un contenedor que tendrá los valores de probabilidad en cada instante temporal </p>
+<p>También, se puede encontrar la solución mediante el método de diagonalización del Hamiltoniano. Para este caso, invocamos a la función de <code>sm</code> <strong>simulacion_Diag</strong>, que recibe los mismos argumentos que su contraparte del método RK4. En su interior, realiza llamados a las funciones <strong>exps</strong> (solución formal a la ecuación de Schrödinger <a href="../explanation/">Explicación</a>) y <strong>sol_Vector</strong> del módulo <code>Diag</code>. Con este método, atacamos el problema con la base donde el Hamiltoniano es diagonal. Por ello, la función tiene que reconstruir el Hamiltoniano en su totalidad para obtener todos los autovalores y autovectores de este mismo, esto tomará unos segundos. Si se desea aumentar el tamaño de la grilla, el tiempo de ejecución tomará un rato. </p>
+<p>Volvemos a definir un contenedor que tendrá los valores de probabilidad en cada instante temporal:</p>
 <pre><code class="language-py">stateQuantD = simulacion_Diag(psi, hamiltoniano, times, h)
 </code></pre>
-<p>Con esto hecho, ya se tienen las probabilidades de encontrar al fermión en cada sitio de la grilla definida a lo largo de 20 segundos, guardadas en los contenedores <code>stateQuantR</code> y <code>stateQuantD</code>. Para acceder a los resultados de forma manual, se pueden manejar como índices de lista, devolverá un arreglo con las probabilidades en cada punto del espacio en el instante definido.   </p>
-<p><em>La documentación de todas las funciones empleadas se ecuentran en el apartado de</em> <a href="../reference/">referencias</a></p>
+<p>Con esto hecho, ya se tienen las probabilidades de encontrar al fermión en cada sitio de la grilla definida a lo largo de 20 segundos, guardadas en los contenedores <code>stateQuantR</code> y <code>stateQuantD</code>. Para acceder a los resultados de forma manual, se pueden manejar como índices de lista, lo que devolverá arreglos con las probabilidades en cada punto del espacio en el instante definido.   </p>
+<p><em>La documentación de todas las funciones empleadas se ecuentran en el apartado de</em> <a href="../reference/">referencias</a>.</p>
 <h2 id="animaciones">Animaciones</h2>
-<p>Ya teniendo el comportamiento del sistema, se pueden hacer animaciones en las que se grafiquen las probabilidades de encontrar al fermión en los diferentes puntos de la grilla. Esta gráfica va cambiando para cada tiempo.</p>
+<p>Ya teniendo el comportamiento del sistema, se pueden graficar las probabilidades de encontrar al fermión en los diferentes puntos de la grilla. Estas gráficas van cambiando para cada tiempo, convirtiéndose en animaciones.</p>
 <h3 id="runge-kutta-4">Runge-Kutta 4</h3>
 <video width="560" height="315" controls>
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_rk4_tutorial.mp4" type="video/mp4">

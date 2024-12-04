@@ -638,8 +638,8 @@
 
     <div class="doc doc-contents ">
 
-        <p>Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size</p>
-<p>Esta función crear un Hamiltoniano de manera dispersa pues tiene la característica
+        <p>Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size.</p>
+<p>Esta función crea un Hamiltoniano de manera dispersa pues tiene la característica
 de ser tridiagonal. Los valores de un "vector" epsilon forman la diagonal principal y 
 las otras diagonales son formadas por los valores de un "vector" t_enr. 
 En caso que los valores no coincidan con los tamaños de las diagonales respectivas, 
@@ -742,7 +742,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden</p>
+                <p>Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden.</p>
               </div>
             </td>
           </tr>
@@ -786,9 +786,9 @@ la función levanta una excepción <code>ValueError</code>.</p>
 <span class="normal">38</span>
 <span class="normal">39</span>
 <span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">crear_Hamil</span><span class="p">(</span><span class="n">epsilon</span><span class="p">,</span> <span class="n">t_enr</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size.</span>
 
-<span class="sd">    Esta función crear un Hamiltoniano de manera dispersa pues tiene la característica</span>
+<span class="sd">    Esta función crea un Hamiltoniano de manera dispersa pues tiene la característica</span>
 <span class="sd">    de ser tridiagonal. Los valores de un &quot;vector&quot; epsilon forman la diagonal principal y </span>
 <span class="sd">    las otras diagonales son formadas por los valores de un &quot;vector&quot; t_enr. </span>
 <span class="sd">    En caso que los valores no coincidan con los tamaños de las diagonales respectivas, </span>
@@ -811,7 +811,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
 <span class="sd">        ValueError: Si t_enr.size no es igual a epsilon.size - 1.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        hamiltoniano (ndarray): Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden</span>
+<span class="sd">        hamiltoniano (ndarray): Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="n">t_enr</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">epsilon</span><span class="o">.</span><span class="n">size</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
@@ -896,7 +896,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
                 <code>oper</code>
             </td>
             <td>
-                  <code>array</code>
+                  <code>ndarray</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -912,11 +912,11 @@ la función levanta una excepción <code>ValueError</code>.</p>
                 <code>state</code>
             </td>
             <td>
-                  <code>array</code>
+                  <code>ndarray</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Segundo argumento. Es el estado en el que se encuentra el sistema al momento de evaluarlo. </p>
+                <p>Segundo argumento. Es el estado en el que se encuentra el sistema al momento de evaluar el siguiente. </p>
               </div>
             </td>
             <td>
@@ -938,7 +938,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                  <code>array</code>
+                  <code>ndarray</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -978,11 +978,11 @@ la función levanta una excepción <code>ValueError</code>.</p>
 <span class="sd">               [0.+0.j 0.+0.j]])</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        oper (array): Primer argumento. Es el operador lineal que ayudará a evaluar la dinámica del sistema. </span>
-<span class="sd">        state (array): Segundo argumento. Es el estado en el que se encuentra el sistema al momento de evaluarlo. </span>
+<span class="sd">        oper (ndarray): Primer argumento. Es el operador lineal que ayudará a evaluar la dinámica del sistema. </span>
+<span class="sd">        state (ndarray): Segundo argumento. Es el estado en el que se encuentra el sistema al momento de evaluar el siguiente. </span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">       (array): Retorna la multiplicación del opuesto de la constante compleja por el operador lineal y el estado del sistema.</span>
+<span class="sd">       (ndarray): Retorna la multiplicación del opuesto de la constante compleja por el operador lineal y el estado del sistema.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="o">-</span><span class="mf">1.0</span><span class="n">j</span> <span class="o">*</span> <span class="n">oper</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
@@ -1003,7 +1003,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Evaluación del estado de un sistema dinámico con respecto al anterior.</p>
+        <p>Evaluación del estado de un sistema dinámico usando el método de Runge-Kutta de orden 4.</p>
 
 
 <p><span class="doc-section-title">Examples:</span></p>
@@ -1107,7 +1107,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Retorna la suma del estado anterior más un sexto de h por la suma del k1 + 2<em>k2 + 2</em>k3 + k4.</p>
+                <p>Retorna la suma del estado anterior más un sexto de h por la suma de k1 + 2<em>k2 + 2</em>k3 + k4.</p>
               </div>
             </td>
           </tr>
@@ -1138,7 +1138,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
 <span class="normal">45</span>
 <span class="normal">46</span>
 <span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rk4</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">oper</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluación del estado de un sistema dinámico con respecto al anterior.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluación del estado de un sistema dinámico usando el método de Runge-Kutta de orden 4.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; rk4(dyn_Generator, np.array([[1.0, 1.0], [1.0, 0.0]]),  np.array([[1.0, 0.0], [1.0, 0.0]]), 1.0)</span>
@@ -1152,7 +1152,7 @@ la función levanta una excepción <code>ValueError</code>.</p>
 <span class="sd">        h (float): Cuarto argumento. Es el tiempo trascurrido desde el estado anterior hasta el que se está calculando.</span>
 
 <span class="sd">    Returns:        </span>
-<span class="sd">        (array): Retorna la suma del estado anterior más un sexto de h por la suma del k1 + 2*k2 + 2*k3 + k4.</span>
+<span class="sd">        (array): Retorna la suma del estado anterior más un sexto de h por la suma de k1 + 2*k2 + 2*k3 + k4.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">k1</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">oper</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
     <span class="n">k2</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">oper</span><span class="p">,</span> <span class="n">state</span> <span class="o">+</span> <span class="p">(</span><span class="n">h</span> <span class="o">*</span> <span class="n">k1</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
@@ -1209,8 +1209,8 @@ la función levanta una excepción <code>ValueError</code>.</p>
     <div class="doc doc-contents ">
 
         <p>Cálculo de la norma al cuadrado de cada componente de un vector psi.</p>
-<p>La función recibe un vector psi (cuyos componentes pueden ser complejos),y calcula 
-la norma de cada uno de sus componentes, y devuelve un arreglo, un nuevo vector 
+<p>La función recibe un vector psi (cuyos componentes pueden ser complejos), y calcula 
+la norma de cada uno de sus componentes. Devuelve un nuevo vector 
 cuyos componentes son las normas al cuadrado de cada entrada del vector original.</p>
 
 
@@ -1300,8 +1300,8 @@ cuyos componentes son las normas al cuadrado de cada entrada del vector original
 <span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">norma_Cuadrada</span><span class="p">(</span><span class="n">psi</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Cálculo de la norma al cuadrado de cada componente de un vector psi.</span>
 
-<span class="sd">    La función recibe un vector psi (cuyos componentes pueden ser complejos),y calcula </span>
-<span class="sd">    la norma de cada uno de sus componentes, y devuelve un arreglo, un nuevo vector </span>
+<span class="sd">    La función recibe un vector psi (cuyos componentes pueden ser complejos), y calcula </span>
+<span class="sd">    la norma de cada uno de sus componentes. Devuelve un nuevo vector </span>
 <span class="sd">    cuyos componentes son las normas al cuadrado de cada entrada del vector original.</span>
 
 <span class="sd">    Examples:</span>
@@ -1433,8 +1433,7 @@ cuyos componentes son las normas al cuadrado de cada entrada del vector original
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Tercer argumento. La daga del estado con la que se va a calcular la daga del nuevo 
-                estado del sistema. </p>
+                <p>Tercer argumento. El estado en la base diagonal con el que se va a calcular el nuevo estado en la base diagonal.</p>
               </div>
             </td>
             <td>
@@ -1460,8 +1459,8 @@ cuyos componentes son las normas al cuadrado de cada entrada del vector original
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Devuelve los valores de la daga del estado viejo multiplicados por el exponencial de los valores 
-     de la diagonal del hamiltoniano multiplicador por el paso temporal y el opuesto de la constante 
+                <p>Devuelve los valores del estado viejo multiplicados por el exponencial de los valores 
+     de la diagonal del hamiltoniano, por el paso temporal y por el opuesto de la constante 
      imaginaria.</p>
               </div>
             </td>
@@ -1497,8 +1496,7 @@ cuyos componentes son las normas al cuadrado de cada entrada del vector original
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">exps</span><span class="p">(</span><span class="n">eigenValues</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">oldState</span><span class="p">):</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">exps</span><span class="p">(</span><span class="n">eigenValues</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">oldState</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Evaluación del exponencial de los valores diagonales del Hamiltoniano.</span>
 
 <span class="sd">       Se evalúa la exponencial según lo indica la solución formal a la ecuación de Schrödinger. En este caso,</span>
@@ -1514,12 +1512,11 @@ cuyos componentes son las normas al cuadrado de cada entrada del vector original
 <span class="sd">    Args:</span>
 <span class="sd">        eigenValues (ndarray): Primer argumento. Autovalores de Hamiltoniano inicial.</span>
 <span class="sd">        h (float): Segundo argumento. Valor del paso temporal del estado anterior al actual.</span>
-<span class="sd">        oldState (ndarray): Tercer argumento. La daga del estado con la que se va a calcular la daga del nuevo </span>
-<span class="sd">                            estado del sistema. </span>
+<span class="sd">        oldState (ndarray): Tercer argumento. El estado en la base diagonal con el que se va a calcular el nuevo estado en la base diagonal.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        (ndarray): Devuelve los valores de la daga del estado viejo multiplicados por el exponencial de los valores </span>
-<span class="sd">                 de la diagonal del hamiltoniano multiplicador por el paso temporal y el opuesto de la constante </span>
+<span class="sd">        (ndarray): Devuelve los valores del estado viejo multiplicados por el exponencial de los valores </span>
+<span class="sd">                 de la diagonal del hamiltoniano, por el paso temporal y por el opuesto de la constante </span>
 <span class="sd">                 imaginaria.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1666,7 +1663,8 @@ las entradas adecuadas. </p>
 
             <details class="quote">
               <summary>Source code in <code>codigo/Diag.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">35</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">34</span>
+<span class="normal">35</span>
 <span class="normal">36</span>
 <span class="normal">37</span>
 <span class="normal">38</span>
@@ -1700,8 +1698,7 @@ las entradas adecuadas. </p>
 <span class="normal">66</span>
 <span class="normal">67</span>
 <span class="normal">68</span>
-<span class="normal">69</span>
-<span class="normal">70</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">sol_Vector</span><span class="p">(</span><span class="n">eigenVectors</span><span class="p">,</span> <span class="n">eigenValues</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="normal">69</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">sol_Vector</span><span class="p">(</span><span class="n">eigenVectors</span><span class="p">,</span> <span class="n">eigenValues</span><span class="p">,</span> <span class="n">psi</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Evaluación del vector solución correspondiente a la dinámica de un sistema cuántico.</span>
 
 <span class="sd">    Esta función realiza el cálculo del vector que dicta la solución formal de la ecuación</span>
@@ -1787,7 +1784,7 @@ las entradas adecuadas. </p>
     <div class="doc doc-contents ">
 
         <p>Crea los parámetros iniciales de un sistema de Tight Binding con un fermión en medio de la grilla.</p>
-<p>Esta función genera los parámetros iniciales del sistema en el cual, el Hamiltoniano contiene valores
+<p>Esta función genera los parámetros iniciales del sistema en el cual el Hamiltoniano contiene valores
 energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i tienen el mismo valor ente sí.</p>
 
 
@@ -1914,8 +1911,8 @@ energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i ti
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo
-           en un punto de la grilla.</p>
+                <p>Vector que contiene un uno en el medio. Representa las probabilidades de encontrar un fermión
+           en los diferentes puntos de la grilla.</p>
               </div>
             </td>
           </tr>
@@ -1926,7 +1923,7 @@ energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i ti
             <td>
               <div class="doc-md-description">
                 <p>Matriz dispersa que solo contiene los elementos no nulos del 
-                                    Hamiltoniano tridiagonal.</p>
+                          Hamiltoniano tridiagonal.</p>
               </div>
             </td>
           </tr>
@@ -2002,7 +1999,7 @@ energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i ti
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Crea los parámetros iniciales de un sistema de Tight Binding con un fermión en medio de la grilla.</span>
 
-<span class="sd">    Esta función genera los parámetros iniciales del sistema en el cual, el Hamiltoniano contiene valores</span>
+<span class="sd">    Esta función genera los parámetros iniciales del sistema en el cual el Hamiltoniano contiene valores</span>
 <span class="sd">    energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i tienen el mismo valor ente sí.</span>
 
 <span class="sd">    Examples: </span>
@@ -2024,10 +2021,10 @@ energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i ti
 <span class="sd">                            tiempo de estudio del sistema.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        psi (ndarray): Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo</span>
-<span class="sd">                       en un punto de la grilla.</span>
+<span class="sd">        psi (ndarray): Vector que contiene un uno en el medio. Representa las probabilidades de encontrar un fermión</span>
+<span class="sd">                       en los diferentes puntos de la grilla.</span>
 <span class="sd">        hamiltoniano (sparse matrix): Matriz dispersa que solo contiene los elementos no nulos del </span>
-<span class="sd">                                                Hamiltoniano tridiagonal.</span>
+<span class="sd">                                      Hamiltoniano tridiagonal.</span>
 <span class="sd">        times (ndarray): Lista que contiene todos los instantes de tiempo separados de manera homogénea.</span>
 <span class="sd">        h (float): Separación entre los instántes temporales.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -2060,9 +2057,10 @@ energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i ti
     <div class="doc doc-contents ">
 
         <p>Simulación de la evolución temporal de un sistema de Tight Binding utilizando la diagonalización del Hamiltoniano.</p>
-<p>Esta función evaluá la dinámica de un sistema de Tight Binding mediante la diagonalización de un Hamiltoniano 
-tridiagonal cuadrado. Sin embargo, el Hamiltoniano es una matriz dispersa, por lo que se construye en su totalidad
+<p>Esta función evalúa la dinámica de un sistema de Tight Binding mediante la diagonalización de un Hamiltoniano 
+tridiagonal cuadrado. Sin embargo, el Hamiltoniano del argumento es una matriz dispersa, por lo que se construye en su totalidad
 para realizar el procedimiento de diagonalización y con ello obtener sus autovalores y autovectores.</p>
+<p>Se requiere utilizar con <code>iniacilización</code>.</p>
 
 
 <p><span class="doc-section-title">Examples:</span></p>
@@ -2099,7 +2097,7 @@ para realizar el procedimiento de diagonalización y con ello obtener sus autova
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo 
+                <p>Vector que contiene un uno  en el medio. Representa las probabilidades de encontrar un fermión
            en un punto de la grilla.</p>
               </div>
             </td>
@@ -2223,13 +2221,17 @@ para realizar el procedimiento de diagonalización y con ello obtener sus autova
 <span class="normal">135</span>
 <span class="normal">136</span>
 <span class="normal">137</span>
-<span class="normal">138</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">simulacion_Diag</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">hamiltoniano</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="normal">138</span>
+<span class="normal">139</span>
+<span class="normal">140</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">simulacion_Diag</span><span class="p">(</span><span class="n">psi</span><span class="p">,</span> <span class="n">hamiltoniano</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Simulación de la evolución temporal de un sistema de Tight Binding utilizando la diagonalización del Hamiltoniano.</span>
 
-<span class="sd">    Esta función evaluá la dinámica de un sistema de Tight Binding mediante la diagonalización de un Hamiltoniano </span>
-<span class="sd">    tridiagonal cuadrado. Sin embargo, el Hamiltoniano es una matriz dispersa, por lo que se construye en su totalidad</span>
+<span class="sd">    Esta función evalúa la dinámica de un sistema de Tight Binding mediante la diagonalización de un Hamiltoniano </span>
+<span class="sd">    tridiagonal cuadrado. Sin embargo, el Hamiltoniano del argumento es una matriz dispersa, por lo que se construye en su totalidad</span>
 <span class="sd">    para realizar el procedimiento de diagonalización y con ello obtener sus autovalores y autovectores.</span>
+
+<span class="sd">    Se requiere utilizar con `iniacilización`.</span>
 
 <span class="sd">    Examples: </span>
 <span class="sd">        &gt;&gt;&gt; import Diag as dg</span>
@@ -2244,7 +2246,7 @@ para realizar el procedimiento de diagonalización y con ello obtener sus autova
 <span class="sd">               [0.4192922095224246 0.03717890618391921 0.08705776858731158 0.03717890618391907 0.41929220952242385]])</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        psi (ndarray): Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo </span>
+<span class="sd">        psi (ndarray): Vector que contiene un uno  en el medio. Representa las probabilidades de encontrar un fermión</span>
 <span class="sd">                       en un punto de la grilla.</span>
 <span class="sd">        hamiltoniano (sparse matrix): Matriz dispersa que representa el Hamiltoniano del sistema.</span>
 <span class="sd">        times (ndarray): Lista que contiene los tiempos en los que se evalúa el sistema.</span>
@@ -2282,7 +2284,7 @@ para realizar el procedimiento de diagonalización y con ello obtener sus autova
     <div class="doc doc-contents ">
 
         <p>Simulación de la evolución temporal de un sistema de Tight Binding utilizando el método de RK4.</p>
-<p>Se requiere utilizar con inicializacion</p>
+<p>Se requiere utilizar con <code>inicializacion</code>.</p>
 
 
 <p><span class="doc-section-title">Examples:</span></p>
@@ -2318,8 +2320,8 @@ para realizar el procedimiento de diagonalización y con ello obtener sus autova
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo 
-           en un punto de la grilla.</p>
+                <p>Vector que contiene un uno en el medio. Representa las probabilidades de encontrar un fermión 
+           en los diferentes puntos de la grilla.</p>
               </div>
             </td>
             <td>
@@ -2440,7 +2442,7 @@ para realizar el procedimiento de diagonalización y con ello obtener sus autova
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Simulación de la evolución temporal de un sistema de Tight Binding utilizando el método de RK4.</span>
 
-<span class="sd">    Se requiere utilizar con inicializacion</span>
+<span class="sd">    Se requiere utilizar con `inicializacion`.</span>
 
 <span class="sd">    Examples: </span>
 <span class="sd">        &gt;&gt;&gt; import rk4 as rk</span>
@@ -2454,8 +2456,8 @@ para realizar el procedimiento de diagonalización y con ello obtener sus autova
 <span class="sd">               [4.078968837688574e+17 1.2236906508230554e+18 1.6315875351315126e+18 1.2236906508230554e+18 4.078968837688574e+17]])</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        psi (ndarray): Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo </span>
-<span class="sd">                       en un punto de la grilla.</span>
+<span class="sd">        psi (ndarray): Vector que contiene un uno en el medio. Representa las probabilidades de encontrar un fermión </span>
+<span class="sd">                       en los diferentes puntos de la grilla.</span>
 <span class="sd">        hamiltoniano (sparse matrix): Matriz dispersa que representa el Hamiltoniano del sistema.</span>
 <span class="sd">        times (ndarray): Lista que contiene los tiempos en los que se evalúa el sistema.</span>
 <span class="sd">        h (float): Paso temporal entre dos instantes de tiempo.</span>
