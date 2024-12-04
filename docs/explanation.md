@@ -5,14 +5,14 @@
 
 ## Sistema
 
-La dinámica de un estado puro para un sistema cuántico aislado se rige bajo la ecuación de Schrödinger ($\hbar = 1$)
+La dinámica de un estado puro para un sistema cuántico aislado se rige bajo la ecuación de Schrödinger ($\hbar = 1$):
 
 $$
 \begin{equation}
 \frac{\partial}{\partial t} |\psi(t)\rangle = -i \hat{H} |\psi(t)\rangle
 \end{equation},
 $$
-cuya solución formal está dada por
+cuya solución formal está dada por:
 
 $$
 \begin{equation}
