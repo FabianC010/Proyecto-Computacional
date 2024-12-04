@@ -57,4 +57,4 @@ Por último, se estudiará el mismo caso anterior pero ahora con un potencial m�
   <source src="https://github.com/FabianC010/Proyecto-Computacional/raw/main/docs/videos/dinamica_DiagE25.mp4" type="video/mp4">
 </video>
 
-Como se puede observar, el comportamiento fue casi el mismo que con el potencial anterior. Lo que cambió es que ahora no hay una parte de las probabilidades que se van alejando del centro de la grilla. En este caso, el pozo de potencial es muy grande, entonces el fermión no tiene suficiente energía cinética para escapar de él. Por esta razón, el fermión siempre se encuentra ahí.
+Como se puede observar, el comportamiento fue casi el mismo que con el potencial anterior. Lo que cambió es que ahora no hay una parte de las probabilidades que se van alejando del centro de la grilla. En este caso, el pozo de potencial es muy grande, entonces el fermión no tiene suficiente energía cinética para escapar de él. Por esta razón, siempre se encuentra ahí.
