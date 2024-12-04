@@ -4,9 +4,9 @@ import numpy as np
 import scipy.sparse as sp
 
 def crear_Hamil(epsilon, t_enr):
-    """Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size
+    """Generador de un Hamiltoniano tridiagonal de dimensión epsilon.size.
 
-    Esta función crear un Hamiltoniano de manera dispersa pues tiene la característica
+    Esta función crea un Hamiltoniano de manera dispersa pues tiene la característica
     de ser tridiagonal. Los valores de un "vector" epsilon forman la diagonal principal y 
     las otras diagonales son formadas por los valores de un "vector" t_enr. 
     En caso que los valores no coincidan con los tamaños de las diagonales respectivas, 
@@ -29,7 +29,7 @@ def crear_Hamil(epsilon, t_enr):
         ValueError: Si t_enr.size no es igual a epsilon.size - 1.
 
     Returns:
-        hamiltoniano (ndarray): Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden
+        hamiltoniano (ndarray): Devuelve el Hamiltoniano de manera dispersa (elementos no nulos) si los valores coinciden.
     """
  
     if (t_enr.size == epsilon.size - 1):

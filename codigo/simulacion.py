@@ -12,7 +12,7 @@ def inicializacion(tamaño, epsilonValue, tValue, timeFinal, timeDivision):
     """
     Crea los parámetros iniciales de un sistema de Tight Binding con un fermión en medio de la grilla.
 
-    Esta función genera los parámetros iniciales del sistema en el cual, el Hamiltoniano contiene valores
+    Esta función genera los parámetros iniciales del sistema en el cual el Hamiltoniano contiene valores
     energéticos homogéneos. Todos los epsilon_i tienen el mismo valor y los t_i tienen el mismo valor ente sí.
 
     Examples: 
@@ -34,10 +34,10 @@ def inicializacion(tamaño, epsilonValue, tValue, timeFinal, timeDivision):
                             tiempo de estudio del sistema.
         
     Returns:
-        psi (ndarray): Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo
-                       en un punto de la grilla.
+        psi (ndarray): Vector que contiene un uno en el medio. Representa las probabilidades de encontrar un fermión
+                       en los diferentes puntos de la grilla.
         hamiltoniano (sparse matrix): Matriz dispersa que solo contiene los elementos no nulos del 
-                                                Hamiltoniano tridiagonal.
+                                      Hamiltoniano tridiagonal.
         times (ndarray): Lista que contiene todos los instantes de tiempo separados de manera homogénea.
         h (float): Separación entre los instántes temporales.
     """
@@ -60,7 +60,7 @@ def simulacion_Rk(psi, hamiltoniano, times, h):
     """
     Simulación de la evolución temporal de un sistema de Tight Binding utilizando el método de RK4.
 
-    Se requiere utilizar con inicializacion
+    Se requiere utilizar con `inicializacion`.
 
     Examples: 
         >>> import rk4 as rk
@@ -74,8 +74,8 @@ def simulacion_Rk(psi, hamiltoniano, times, h):
                [4.078968837688574e+17 1.2236906508230554e+18 1.6315875351315126e+18 1.2236906508230554e+18 4.078968837688574e+17]])
     
     Args:
-        psi (ndarray): Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo 
-                       en un punto de la grilla.
+        psi (ndarray): Vector que contiene un uno en el medio. Representa las probabilidades de encontrar un fermión 
+                       en los diferentes puntos de la grilla.
         hamiltoniano (sparse matrix): Matriz dispersa que representa el Hamiltoniano del sistema.
         times (ndarray): Lista que contiene los tiempos en los que se evalúa el sistema.
         h (float): Paso temporal entre dos instantes de tiempo.
@@ -99,9 +99,11 @@ def simulacion_Diag(psi, hamiltoniano, times, h):
     """
     Simulación de la evolución temporal de un sistema de Tight Binding utilizando la diagonalización del Hamiltoniano.
 
-    Esta función evaluá la dinámica de un sistema de Tight Binding mediante la diagonalización de un Hamiltoniano 
-    tridiagonal cuadrado. Sin embargo, el Hamiltoniano es una matriz dispersa, por lo que se construye en su totalidad
+    Esta función evalúa la dinámica de un sistema de Tight Binding mediante la diagonalización de un Hamiltoniano 
+    tridiagonal cuadrado. Sin embargo, el Hamiltoniano del argumento es una matriz dispersa, por lo que se construye en su totalidad
     para realizar el procedimiento de diagonalización y con ello obtener sus autovalores y autovectores.
+
+    Se requiere utilizar con `iniacilización`.
 
     Examples: 
         >>> import Diag as dg
@@ -116,7 +118,7 @@ def simulacion_Diag(psi, hamiltoniano, times, h):
                [0.4192922095224246 0.03717890618391921 0.08705776858731158 0.03717890618391907 0.41929220952242385]])
     
     Args:
-        psi (ndarray): Vector que contiene a un fermión en el medio. Representa las probabilidades de encontrarlo 
+        psi (ndarray): Vector que contiene un uno  en el medio. Representa las probabilidades de encontrar un fermión
                        en un punto de la grilla.
         hamiltoniano (sparse matrix): Matriz dispersa que representa el Hamiltoniano del sistema.
         times (ndarray): Lista que contiene los tiempos en los que se evalúa el sistema.

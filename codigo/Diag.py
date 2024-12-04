@@ -18,12 +18,11 @@ def exps(eigenValues, h, oldState):
     Args:
         eigenValues (ndarray): Primer argumento. Autovalores de Hamiltoniano inicial.
         h (float): Segundo argumento. Valor del paso temporal del estado anterior al actual.
-        oldState (ndarray): Tercer argumento. La daga del estado con la que se va a calcular la daga del nuevo 
-                            estado del sistema. 
+        oldState (ndarray): Tercer argumento. El estado en la base diagonal con el que se va a calcular el nuevo estado en la base diagonal.
 
     Returns:
-        (ndarray): Devuelve los valores de la daga del estado viejo multiplicados por el exponencial de los valores 
-                 de la diagonal del hamiltoniano multiplicador por el paso temporal y el opuesto de la constante 
+        (ndarray): Devuelve los valores del estado viejo multiplicados por el exponencial de los valores 
+                 de la diagonal del hamiltoniano, por el paso temporal y por el opuesto de la constante 
                  imaginaria.
     """
      
